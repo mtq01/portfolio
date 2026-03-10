@@ -1,0 +1,59 @@
+/* layout of App Component */
+
+/* mobile layout */
+  /* base grid */
+  .base-grid {
+    display: block;
+    height: 100vh;
+    /* 100% of max-width 105rem (set on body, index.css) */
+    width: 100%;
+  }
+
+
+/* desktop layout */
+@media (min-width: 50rem) {
+
+  /* base grid */
+  .base-grid {
+    display: grid;
+    height: 100vh;
+    /* 100% of max-width 105rem (set on body, index.css) */
+    width: 100%;
+    grid-template-columns: 4rem repeat(2, 1fr);
+    grid-template-rows: 2rem 1fr 2rem;
+    overflow: hidden;
+  }
+
+  /* grid areas for components */
+  .site-nav {
+    border-right: 0.0625rem solid rgba(0, 0, 0, 0.445);
+    grid-row: 1 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .site-header {
+    grid-row: 1;
+    grid-column: 2 / 4;
+    background: rgb(61, 56, 56);
+  }
+
+  .site-main {
+    grid-row: 2;
+    grid-column: 2 / 4;
+    overflow-y: auto;
+  }
+
+  .site-footer {
+    grid-row: 3;
+    grid-column: 2 / 4;
+    background: rgb(61, 56, 56);
+  }
+
+  .site-nav,
+  .site-header,
+  .site-main,
+  .site-footer {
+    padding: 0.5rem;
+  }
+
+}
