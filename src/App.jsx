@@ -1,7 +1,6 @@
 import Header from './components/header/Header';
 import Nav from './components/nav/Nav';
 import MainContent from './components/main/MainContent';
-import Footer from './components/footer/Footer';
 import './App.css'
 import { useEffect } from 'react';
 
@@ -17,7 +16,6 @@ function App() {
           <Nav />
           <Header />
           <MainContent />
-          <Footer />
       </div>
   )
 }
