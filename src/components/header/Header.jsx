@@ -1,13 +1,23 @@
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
+import { useLocation } from "react-router-dom";
 
 function Header() {
     const { isSystemHealthy } = useActivityLog();
+    const location = useLocation();
+
+    const getPathName = () => {
+        const path = location.pathname;
+        if (path === "/") return " HOME / PROJECTS";
+        if (path === "/about") return " ABOUT";
+        if (path === "/contact") return " CONTACT";
+        return "UNKNOWN";
+    }
 
     return (
         <header className="site-header">
             <div className="header-left">
                 <span className="system-path">DASHBOARD / </span>
-                <h3 className="page-title">PROJECTS</h3>
+                <h3 className="page-title">{getPathName()}</h3>
             </div>
 
             <div className="header-right">
