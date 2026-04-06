@@ -9,11 +9,11 @@ function SystemMonitor({ isSystemHealthy, toggleSystemHealth }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "15px",
+          padding: "0.25rem 0 0.5rem 0",
         }}
       >
         <h2 className="aside-title" style={{ margin: 0 }}>
-          System Activity
+          Activity Log
         </h2>
 
         {/* live / offline toggle */}

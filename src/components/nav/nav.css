@@ -33,52 +33,45 @@
 }
 
 .nav-icon {
-    width: 3rem;
-    fill: var(--sys-green);
     cursor: pointer;
     padding: 0.25rem 0;
     width: 1.5rem;
     fill: var(--text-dim);
-    /* Use your CSS variable */
     transition: fill 0.3s ease, filter 0.3s ease;
 }
 
 .nav-icon-title {
     color: var(--text-dim);
     transition: color 0.3s ease;
-    /* font-size: 1rem; */
+    font-size: 0.9rem;
 }
 
 .nav-link.active .nav-icon {
-    fill: var(--sys-green) !important;
-    /* Force the color change */
-    filter: drop-shadow(0 0 5px var(--sys-green));
+    fill: var(--sys-green);
+    filter: drop-shadow(0 0 0.3125rem var(--sys-green));
 }
 
 .nav-link.active .nav-icon-title {
-    color: var(--sys-green) !important;
-    text-shadow: 0 0 10px rgba(1, 255, 141, 0.3);
+    color: var(--sys-green);
+    text-shadow: 0 0 0.0625rem rgba(1, 255, 141, 0.3);
 }
 
 
+/* nav controls */
 
-.nav-controls {
-    margin-top: auto;
-    /* Pushes the role/theme to the bottom */
-    padding: 1rem;
-    border-top: 1px solid var(--border-subtle);
-}
+/* .nav-controls {
+    padding: 0;
+} */
+
 .control-label {
     color: var(--sys-blue);
     font-size: 0.75rem;
     font-weight: bold;
 }
+
 .role-display {
     display: inline-flex;
     align-items: center;
-    border-radius: 16px;
-    /* Pill shape */
-    text-transform: uppercase;
 }
 
 .role-developer {
@@ -92,34 +85,28 @@
 /* nav desktop */
 @media (min-width: 50rem) {
     .site-nav {
-        /* Staying in your grid, but styling like a sidebar */
         background-color: var(--bg-main);
-        border-right: 1px solid var(--border-subtle);
+        border-right: 0.0625rem solid var(--border-subtle);
         display: flex;
         flex-direction: column;
         padding: 1rem 0;
-        /* MUI uses vertical breathing room */
     }
 
     .site-logo {
-        display: block;
-        width: 40px;
-        margin: 1.5rem auto;
-        /* centered logo */
-        filter: grayscale(1) brightness(1.5);
+        display: flex;
+        width: 2.5rem;
+        margin: 0.75rem 0;
     }
 
     .nav-link-container {
         margin: 0;
         padding: 0 0.75rem;
-        /* Give both containers the same side-breathing room */
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 0.25rem;
         width: 100%;
         box-sizing: border-box;
-        /* Crucial for width: 100% with padding */
     }
 
     /* link default state */
@@ -127,9 +114,9 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 10px 12px;
-        /* Consistent height and internal spacing */
-        border-radius: 8px;
+        padding: .625rem 0.75rem;
+        /* height & internal spacing */
+        border-radius: 0.5rem;
         width: 100%;
         box-sizing: border-box;
         cursor: pointer;
@@ -144,7 +131,6 @@
     /* link active state */
     .nav-link.active {
         background-color: rgba(1, 255, 141, 0.12);
-        /* Subtle tint of your green */
         color: var(--sys-green);
         font-weight: 600;
     }
@@ -152,16 +138,13 @@
     .nav-controls {
         margin-top: auto;
         padding: 1rem 0.75rem;
-        /* Match the side padding of the links above */
-        border-top: 1px solid var(--border-subtle);
+        /* match padding of nav-links above */
+        border-top: 0.0625rem solid var(--border-subtle);
         width: 100%;
         box-sizing: border-box;
     }
 
     .color-palette.nav-link-container {
         padding: 0;
-        /* Since the parent .nav-controls already has padding */
     }
-
-
 }
