@@ -4,7 +4,7 @@
     justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
-    background: #000;
+    background: var(--bg-main);
 }
 
 .site-logo {
@@ -16,13 +16,12 @@
     flex-direction: row;
     list-style-type: none;
     gap: 1rem;
-    border: 1px solid rgb(0, 255, 140);
     width: 100%;
 }
 
 .nav-link:hover {
-    fill: rgb(0, 255, 140);
-    color: rgb(0, 255, 140);
+    fill: var(--sys-green);
+    color: var(--sys-green);
     cursor: pointer;
 }
 
@@ -35,42 +34,134 @@
 
 .nav-icon {
     width: 3rem;
-    fill: rgb(0, 255, 140);
+    fill: var(--sys-green);
     cursor: pointer;
     padding: 0.25rem 0;
+    width: 1.5rem;
+    fill: var(--text-dim);
+    /* Use your CSS variable */
+    transition: fill 0.3s ease, filter 0.3s ease;
 }
 
 .nav-icon-title {
-    font-size: 1rem;
+    color: var(--text-dim);
+    transition: color 0.3s ease;
+    /* font-size: 1rem; */
 }
 
+.nav-link.active .nav-icon {
+    fill: var(--sys-green) !important;
+    /* Force the color change */
+    filter: drop-shadow(0 0 5px var(--sys-green));
+}
+
+.nav-link.active .nav-icon-title {
+    color: var(--sys-green) !important;
+    text-shadow: 0 0 10px rgba(1, 255, 141, 0.3);
+}
+
+
+
+.nav-controls {
+    margin-top: auto;
+    /* Pushes the role/theme to the bottom */
+    padding: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+.control-label {
+    color: var(--sys-blue);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.role-display {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 16px;
+    /* Pill shape */
+    text-transform: uppercase;
+}
+
+.role-developer {
+    color: var(--sys-green);
+}
+
+.role-guest {
+    color: var(--sys-blue);
+}
 
 /* nav desktop */
 @media (min-width: 50rem) {
     .site-nav {
-        justify-content: space-between;
+        /* Staying in your grid, but styling like a sidebar */
+        background-color: var(--bg-main);
+        border-right: 1px solid var(--border-subtle);
+        display: flex;
         flex-direction: column;
-    }
-
-    /* must be set to column for desktop */
-    .nav-link-container {
-        flex-direction: column;
-        justify-content: left;
-        min-width: 6rem;
-        width: 6rem;
-    }
-
-    .nav-link {
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .nav-icon {
-        width: 1.5rem;
+        padding: 1rem 0;
+        /* MUI uses vertical breathing room */
     }
 
     .site-logo {
         display: block;
-        width: 1.5rem;
+        width: 40px;
+        margin: 1.5rem auto;
+        /* centered logo */
+        filter: grayscale(1) brightness(1.5);
     }
+
+    .nav-link-container {
+        margin: 0;
+        padding: 0 0.75rem;
+        /* Give both containers the same side-breathing room */
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        /* Crucial for width: 100% with padding */
+    }
+
+    /* link default state */
+    .nav-link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 12px;
+        /* Consistent height and internal spacing */
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    /* link hover state */
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--text-main);
+    }
+
+    /* link active state */
+    .nav-link.active {
+        background-color: rgba(1, 255, 141, 0.12);
+        /* Subtle tint of your green */
+        color: var(--sys-green);
+        font-weight: 600;
+    }
+
+    .nav-controls {
+        margin-top: auto;
+        padding: 1rem 0.75rem;
+        /* Match the side padding of the links above */
+        border-top: 1px solid var(--border-subtle);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .color-palette.nav-link-container {
+        padding: 0;
+        /* Since the parent .nav-controls already has padding */
+    }
+
+
 }
