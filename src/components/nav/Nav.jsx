@@ -1,9 +1,7 @@
-// useState
 import { useState } from "react";
-// import activity log hooK
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
 import { LOG_TYPES } from "../../constants";
-// Stylesheet
+import { NavLink } from "react-router-dom";
 import "./nav.css";
 
 const palette = {
@@ -14,7 +12,6 @@ const palette = {
 function Nav() {
   const [lightToggle, setLightToggle] = useState("darkMode");
   const { addLog, isSystemHealthy, userRole, setUserRole } = useActivityLog();
-  const [activeTab, setActiveTab] = useState("Home");
 
   const handleThemeToggle = () => {
     const newMode = lightToggle === "darkMode" ? "lightMode" : "darkMode";
@@ -23,11 +20,6 @@ function Nav() {
       ? `UI_Local: Theme switched to ${palette[newMode]} (Sync pending...)`
       : `Theme switched to ${palette[newMode]} mode`;
     addLog(logMsg, LOG_TYPES.SUCCESS);
-  };
-
-  const handleNavClick = (target) => {
-    setActiveTab(target);
-    addLog(`Redirecting to ${target.toLowerCase()}`, LOG_TYPES.INFO);
   };
 
   const handleRoleToggle = () => {
@@ -43,20 +35,28 @@ function Nav() {
     <nav className="site-nav">
       <img src="/src/assets/react.svg" alt="logo" className="site-logo" />
 
-      {/* dashboard */}
+      {/* home */}
       <ul className="nav-link-container">
-        <li onClick={() => handleNavClick("dashboard")}>
-          <div className={`nav-link ${activeTab === "dashboard" ? "active" : ""}`}>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            onClick={() => addLog("Accessing Home Page...", LOG_TYPES.INFO)}
+          >
             <svg viewBox="0 -960 960 960" className="nav-icon">
               <path d="m320-240 160-122 160 122-60-198 160-114H544l-64-208-64 208H220l160 114-60 198ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
             </svg>
-            <span className="nav-icon-title">Dashboard</span>
-          </div>
+            <span className="nav-icon-title">Home</span>
+          </NavLink>
         </li>
 
         {/* about */}
-        <li onClick={() => handleNavClick("about")}>
-          <div className={`nav-link ${activeTab === "about" ? "active" : ""}`}>
+        <li>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            onClick={() => addLog("Accessing About Page...", LOG_TYPES.INFO)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 -960 960 960"
@@ -65,13 +65,17 @@ function Nav() {
               <path d="M360-120v-200q-62-5-121.5-14T120-360l20-80q83 23 168 31.5t172 8.5q86 0 171-8.5T820-440l20 80q-60 17-119.5 26T600-320v200H360Zm120-320q-34 0-57-23t-23-57q0-33 23-56.5t57-23.5q33 0 56.5 23.5T560-520q0 34-23.5 57T480-440ZM180-560q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T240-620q0 26-17.5 43T180-560Zm600 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T840-620q0 26-17.5 43T780-560ZM290-710q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T350-770q0 26-17.5 43T290-710Zm380 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T730-770q0 26-17.5 43T670-710Zm-190-50q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T540-820q0 26-17.5 43T480-760Z" />
             </svg>
             <span className="nav-icon-title">About</span>
-          </div>
+          </NavLink>
         </li>
 
         {/* contact */}
         <li onClick={() => handleNavClick("contact")}>
-          <div
-            className={`nav-link ${activeTab === "contact" ? "active" : ""}`}
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            onClick={() =>
+              addLog("Accessing Contact Information...", LOG_TYPES.INFO)
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,12 +85,16 @@ function Nav() {
               <path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
             </svg>
             <span className="nav-icon-title">Contact</span>
-          </div>
+          </NavLink>
         </li>
 
         {/* githuub */}
-        <li onClick={() => handleNavClick("github")}>
-          <div className={`nav-link ${activeTab === "github" ? "active" : ""}`}>
+        <li>
+          <NavLink
+            to="/github"
+            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            onClick={() => addLog("Redirecting to GitHub...", LOG_TYPES.INFO)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 -960 960 960"
@@ -95,12 +103,16 @@ function Nav() {
               <path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
             </svg>
             <span className="nav-icon-title">GitHub</span>
-          </div>
+          </NavLink>
         </li>
 
         {/* email */}
-        <li onClick={() => handleNavClick("email")}>
-          <div className={`nav-link ${activeTab === "email" ? "active" : ""}`}>
+        <li>
+          <NavLink
+            to="/email"
+            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            onClick={() => addLog("Email copied to clipbaord", LOG_TYPES.INFO)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 -960 960 960"
@@ -109,7 +121,7 @@ function Nav() {
               <path d="M440-280h80v-240h-80v240Zm68.5-331.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
             </svg>
             <span className="nav-icon-title">Email</span>
-          </div>
+          </NavLink>
         </li>
       </ul>
 

@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
-import Popup from "../popup/Popup.jsx";
-import { useActivityLog } from "../activity-log/context/ActivityLogContext.jsx";
-import { projects } from "../../data/projects.js";
-import { LOG_TYPES } from "../../constants.js";
-import "./main-content.css";
-import SystemMonitor from "../aside/SystemMonitor.jsx";
+import { useActivityLog } from "../activity-log/context/ActivityLogContext";
+import { projects } from "../../data/projects";
+import { LOG_TYPES } from "../../constants";
+import ProjectTiles from "../project-tiles/ProjectTiles";
+import Hero from "../hero/Hero";
+import SystemMonitor from "../aside/SystemMonitor";
+import ProjectCard from "../project-card/ProjectCard";
+import Popup from "../popup/Popup";
 
-import ProjectTiles from "../project-tiles/ProjectTiles.jsx";
-import Hero from "../hero/Hero.jsx";
-import ProjectCard from "../project-card/ProjectCard.jsx";
-
-function MainContent() {
+function Home() {
   const [active, setActive] = useState("cinemax");
-  const [activeCard, setActiveCard] = useState(null); // { title, description }
-  const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } =
-    useActivityLog();
+  const [activeCard, setActiveCard] = useState(null);
+  const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
   const current = projects[active];
 
   // log: project tabs
@@ -41,10 +38,8 @@ function MainContent() {
   };
 
   return (
-    // .site-main is in App.css (where the main site layout is created)
-    <main className={`site-main ${!isSystemHealthy ? "system-failure" : ""}`}>
-      {/* Main Container */}
-      <div className="main-container">
+    <>
+
         {/* Project Tiles: Navigation */}
         <ProjectTiles
           projects={projects}
@@ -69,9 +64,6 @@ function MainContent() {
           userRole={userRole}
         />
 
-        <footer className="grid-footer">&#169;Copyright 2026</footer>
-      </div>
-
       {/* Popup Component */}
       <Popup
         isOpen={activeCard !== null}
@@ -79,8 +71,8 @@ function MainContent() {
         description={activeCard?.description}
         onClose={() => setActiveCard(null)}
       />
-    </main>
+    </>
   );
 }
 
-export default MainContent;
+export default Home;
