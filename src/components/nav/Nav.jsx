@@ -7,8 +7,8 @@ import { LOG_TYPES } from "../../constants";
 import "./nav.css";
 
 const palette = {
-  darkMode: "Dark",
-  lightMode: "Light",
+  darkMode: "Dark Mode",
+  lightMode: "Light Mode",
 };
 
 function Nav() {

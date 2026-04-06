@@ -7,7 +7,7 @@ function Header() {
         <header className="site-header">
             <div className="header-left">
                 <span className="system-path">DASHBOARD / </span>
-                <h3 className="page-title">PROJECT_FILES</h3>
+                <h3 className="page-title">PROJECTS</h3>
             </div>
 
             <div className="header-right">
