@@ -210,7 +210,7 @@ wont stop anyone who is determined... or who looks at my code lmao
 export const contactLinks = {
   email: {
     label: "Email",
-    href: `${import.meta.env.VITE_EMAIL_USER}@${import.meta.env.VITE_EMAIL_DOMAIN}`,
+    href: `mailto:${import.meta.env.VITE_EMAIL_USER}@${import.meta.env.VITE_EMAIL_DOMAIN}`,
   },
   github: {
     label: "GitHub",
