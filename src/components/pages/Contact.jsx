@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
-import { projects } from "../../data/projects";
+import { contactInfo } from "../../data/site-data";
 import { LOG_TYPES } from "../../constants";
 import ProjectTiles from "../project-tiles/ProjectTiles";
 import Hero from "../hero/Hero";
@@ -9,10 +9,10 @@ import ProjectCard from "../project-card/ProjectCard";
 import Popup from "../popup/Popup";
 
 function Contact() {
-  const [active, setActive] = useState("cinemax");
+  const [active, setActive] = useState("email");
   const [activeCard, setActiveCard] = useState(null);
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
-  const current = projects[active];
+  const current = contactInfo[active];
 
   // log: project tabs
   useEffect(() => {
@@ -42,7 +42,7 @@ function Contact() {
 
         {/* Project Tiles: Navigation */}
         <ProjectTiles
-          projects={projects}
+          projects={contactInfo}
           active={active}
           setActive={setActive}
         />

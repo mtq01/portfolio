@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useActivityLog } from "./context/ActivityLogContext";
 import { LOG_TYPES } from "../../constants";
+import "../activity-log/activity-log.css";
 
 // ++++++++++ log ui component
 const ActivityLogUI = () => {
