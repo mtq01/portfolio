@@ -71,7 +71,7 @@ function ProjectCard({ cards, setActiveCard, isSystemHealthy, userRole }) {
               /* offline view */
               <div className="card-error-state">
                 <div className="offline-emoji">📡</div>
-                <h3 class="data-link-severed">
+                <h3 className="data-link-severed">
                   Data Link Severed
                 </h3>
                 <p className="card-error-state-details" >

@@ -13,7 +13,7 @@ function ContactDrawer({ isOpen, onClose }) {
          - Object.values() cnvrts the 'contactLinks' obj into an array, then loops, & destructures them
         */}
         {Object.values(contactLinks).map(({ label, href }) => (
-          <li>
+          <li key={label}>
             <a
               href={href}
               // if mailtio: open in current tab. otherwise open a blank tab
