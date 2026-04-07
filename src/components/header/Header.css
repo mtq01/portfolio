@@ -1,0 +1,92 @@
+/* ++++++++++ start [HEADER] styles (mobile) ++++++++++ */
+
+/* breadcrumbs */
+.system-path {
+color: var(--text-dim);
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.page-title {
+padding: 0;
+  display: inline;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+/* name, job title */
+.user-meta {
+display: flex;
+  flex-direction: column; /* Stacked for better mobile fit */
+  align-items: flex-start;
+  border-left: 1px solid var(--border-subtle);
+  padding-left: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.my-name {
+  padding: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  color: var(--sys-blue);
+}
+
+.user-role {
+  display: block;
+  font-size: 0.55rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+/* (header) system status */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: right;
+}
+
+.header-status {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  /* border around system status */
+  border: 1px solid;
+  text-transform: uppercase;
+}
+
+.header-status.online {
+  color: var(--sys-green);
+  border-color: rgba(1, 255, 141, 0.2);
+  background: rgba(1, 255, 141, 0.05);
+}
+
+.header-status.degraded {
+  color: var(--sys-red);
+  border-color: rgba(255, 77, 77, 0.2);
+  background: rgba(255, 77, 77, 0.05);
+}
+
+
+/* ++++++++++ start [DESKTOP] layout ++++++++++ */
+@media (min-width: 50rem) {
+ .user-meta {
+    flex-direction: row; /* Back to side-by-side on desktop */
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  .my-name {
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+}

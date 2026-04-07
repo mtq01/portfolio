@@ -6,6 +6,7 @@ import "./mainlayout.css";
 
 function MainLayout() {
   const { isSystemHealthy } = useActivityLog();
+  
 
   return (
     <div className="base-grid">

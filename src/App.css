@@ -36,8 +36,6 @@
 
 /* ---------- end [VARIABLE] styles ---------- */
 
-
-
 html {
   max-width: 120rem;
   margin: 0 auto;
@@ -54,14 +52,14 @@ body {
   display: grid;
   height: 100vh;
   width: 100%;
-  grid-template-columns: 4rem repeat(11, 1fr);
-  grid-template-rows: 2rem 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 2rem 1fr 4rem;
   overflow: hidden;
 }
 
 /* +++ start grid areas (define rows / columns) +++ */
 .site-nav {
-  grid-row: 4;
+  grid-row: 3;
   grid-column: 1 / 13;
 }
 
@@ -71,7 +69,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 0.5rem;
   background: rgba(10, 10, 10, 0.8);
   border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
 }
@@ -79,208 +77,16 @@ body {
 .site-main {
   grid-row: 2;
   grid-column: 1 / 13;
-  overflow-y: hidden;
+  overflow-y: auto;
   background: var(--bg-dark);
   color: var(--text-main);
   height: 100%;
+  padding: 0 1rem;
 }
 
 /* --- end grid areas (define rows / columns)  --- */
 
-/* ++++++++++ start [HEADER] styles (mobile) ++++++++++ */
 
-/* breadcrumbs */
-.system-path {
-  color: #666;
-  font-size: 0.8rem;
-}
-
-.page-title {
-  padding: 0;
-  display: inline;
-  font-size: 1rem;
-  letter-spacing: 0.0625rem;
-}
-
-/* name, job title */
-.user-meta {
-  display: flex;
-  align-items: center;
-}
-
-.my-name {
-  padding: 0 1rem;
-}
-
-.user-role {
-  display: block;
-  font-size: 0.65rem;
-  color: #888;
-  text-transform: uppercase;
-}
-
-/* (header) system status */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-align: right;
-}
-
-.header-status {
-  font-size: 0.7rem;
-  padding: 0.125rem .375rem;
-  border-radius: 0.1875rem;
-  /* border around sys_status in header */
-  border: 0.0625rem solid;
-}
-
-.header-status.online {
-  color: var(--sys-green);
-  border-color: #4ade804d;
-}
-
-.header-status.degraded {
-  color: var(--sys-red);
-  border-color: #ff4d4d4d;
-}
-
-/* ---------- end [HEADER]] styles ---------- */
-
-/* +++++ start [ACTIVITY LOG] styles (mobile) +++++ */
-.nav-activity-log {
-  background: var(--bg-dark);
-  padding: 0;
-  font-family: 'Roboto', 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  width: 100%;
-  height: 100%;
-}
-
-.log-header {
-  color: var(--sys-light);
-  font-weight: bold;
-  margin-bottom: 0.3125rem;
-  border-bottom: 0.0625rem solid var(--border-subtle);
-
-}
-
-.log-scroll {
-  height: 15.625rem;
-  overflow-y: auto;
-  display: flex;
-  /* new logs show on top */
-  flex-direction: column;
-}
-
-.log-entry {
-  margin-bottom: 3px;
-  line-height: 1.2;
-}
-
-.log-time {
-  color: var(--text-main);
-}
-
-.log-entry.info {
-  color: var(--sys-blue);
-}
-
-/* success green */
-.log-entry.success {
-  color: var(--sys-green);
-}
-
-/* error red */
-.log-entry.error {
-  color: var(--sys-red);
-}
-
-/* security: orange */
-.log-entry.security {
-  color: var(--sys-yellow);
-}
-
-/* hide scrollbar */
-.log-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-/* +++++ status bar +++++ */
-.api-status-bar {
-  display: flex;
-  gap: 1rem;
-  padding: 0.5rem 0.75rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 0.0625rem;
-}
-
-.status-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* The Dots themselves */
-.dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-/* green = online / healthy */
-.dot.green {
-  background-color: #4ade80;
-  box-shadow: 0 0 0.5rem #4ade80;
-}
-
-/* red = offline / error */
-.dot.red {
-  background-color: #ff4d4d;
-  box-shadow: 0 0 0.5rem #ff4d4d;
-}
-
-/* yellow = searching 4 connection */
-.dot.yellow {
-  background-color: #facc15;
-  box-shadow: 0 0 0.5rem rgba(250, 204, 21, 0.5);
-}
-
-.blink {
-  /* make light blink */
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.2;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.status-item small {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.7rem;
-  color: var(--sys-light);
-  text-transform: uppercase;
-}
-
-.api-status-bar {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* ----- end [ACTIVITY LOG] styles (mobile) ----- */
 
 
 
@@ -307,6 +113,8 @@ body {
   }
 
   .site-main {
+    grid-row: 2;
     grid-column: 2;
+    overflow-y: hidden;
   }
 }

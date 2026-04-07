@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
-import { projects } from "../../data/projects";
+import { strengths } from "../../data/site-data";
 import { LOG_TYPES } from "../../constants";
 import ProjectTiles from "../project-tiles/ProjectTiles";
 import Hero from "../hero/Hero";
@@ -9,10 +9,10 @@ import ProjectCard from "../project-card/ProjectCard";
 import Popup from "../popup/Popup";
 
 function About() {
-  const [active, setActive] = useState("cinemax");
+  const [active, setActive] = useState("collaborative");
   const [activeCard, setActiveCard] = useState(null);
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
-  const current = projects[active];
+  const current = strengths[active];
 
   // log: project tabs
   useEffect(() => {
@@ -42,7 +42,7 @@ function About() {
 
         {/* Project Tiles: Navigation */}
         <ProjectTiles
-          projects={projects}
+          projects={strengths}
           active={active}
           setActive={setActive}
         />

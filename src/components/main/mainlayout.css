@@ -2,7 +2,7 @@
 .main-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 /* system failure style only ------ */
@@ -28,6 +28,7 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    margin-top: 0.75rem;
 }
 
 .project-tile {
@@ -118,16 +119,14 @@ sup {
 
 /* Card Section */
 .card-container {
-    /* Grid Position from Main-Container */
     grid-column: 1 / 13;
-    /* this is '9 / 14' bcuz i added an extra 0.5fr row above for the .title */
-    grid-row: 10 / 14;
+    grid-row: 6 / 14;
 
     /* Card Sub Grid */
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    gap: 0.5rem 1rem;
+    gap: 1rem;
 }
 
 .card-title {
@@ -297,7 +296,6 @@ span.stable-version {
 @media (min-width: 50rem) {
     .main-container {
         grid-template-rows: 0.5fr repeat(12, 1fr);
-        gap: 1rem;
         height: 100%;
         padding: 0.5rem;
         background: #131313;

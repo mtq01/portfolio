@@ -1,13 +1,20 @@
 /* nav mobile */
 .site-nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between; /* Space between links and controls */
     flex-direction: row;
     align-items: center;
     background: var(--bg-main);
+    height: 100%;
+    width: 100%;
+    padding: 0 0.5rem; /* Little breathing room on the edges */
+    box-sizing: border-box;
+    border-top: 0.0625rem solid var(--border-subtle);
 }
 
-.site-logo {
+
+/* prevents links from being swquished */
+.site-logo, .nav-controls {
     display: none;
 }
 
@@ -15,8 +22,11 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    gap: 1rem;
-    width: 100%;
+    gap: 0.25rem; /* Tight gap for mobile */
+    margin: 0;
+    padding: 0;
+    flex: 3; /* Takes up most of the space */
+    justify-content: space-around;
 }
 
 .nav-link:hover {
@@ -35,8 +45,8 @@
 
 .nav-icon {
     cursor: pointer;
-    padding: 0.25rem 0;
-    width: 1.5rem;
+    padding: 0.2rem 0;
+    width: 1.4rem;      /* Slightly smaller for tight mobile rows */
     fill: var(--text-dim);
     transition: fill 0.3s ease, filter 0.3s ease;
 }
@@ -44,7 +54,7 @@
 .nav-icon-title {
     color: var(--text-dim);
     transition: color 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.75rem; /* Smaller text for mobile labels */
 }
 
 .nav-link.active .nav-icon {
@@ -60,9 +70,17 @@
 
 /* nav controls */
 
-/* .nav-controls {
-    padding: 0;
-} */
+/* --- THE SYSTEM TRAY --- */
+.nav-controls {
+    display: flex;
+    flex: 1.5; /* Dedicated space for the 2 toggles */
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.03); /* Subtle highlight */
+    border-left: 0.0625rem solid var(--border-subtle);
+}
 
 .control-label {
     color: var(--sys-blue);

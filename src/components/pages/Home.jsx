@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
-import { projects } from "../../data/projects";
+import { projects } from "../../data/site-data";
 import { LOG_TYPES } from "../../constants";
 import ProjectTiles from "../project-tiles/ProjectTiles";
 import Hero from "../hero/Hero";

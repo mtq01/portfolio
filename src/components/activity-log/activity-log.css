@@ -1,0 +1,134 @@
+/* +++++ start [ACTIVITY LOG] styles (mobile) +++++ */
+.nav-activity-log {
+  background: var(--bg-dark);
+  padding: 0;
+  font-family: 'Roboto', 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.log-header {
+  color: var(--sys-light);
+  font-weight: bold;
+  margin-bottom: 0.3125rem;
+  border-bottom: 0.0625rem solid var(--border-subtle);
+
+}
+
+.log-scroll {
+  height: 15.625rem;
+  overflow-y: auto;
+  display: flex;
+  /* new logs show on top */
+  flex-direction: column;
+}
+
+.log-entry {
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+
+.log-time {
+  color: var(--text-main);
+}
+
+.log-entry.info {
+  color: var(--sys-blue);
+}
+
+/* success green */
+.log-entry.success {
+  color: var(--sys-green);
+}
+
+/* error red */
+.log-entry.error {
+  color: var(--sys-red);
+}
+
+/* security: orange */
+.log-entry.security {
+  color: var(--sys-yellow);
+}
+
+/* hide scrollbar */
+.log-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* +++++ status bar +++++ */
+.api-status-bar {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.0625rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* dots */
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* green = online / healthy */
+.dot.green {
+  background-color: #4ade80;
+  box-shadow: 0 0 0.5rem #4ade80;
+}
+
+/* red = offline / error */
+.dot.red {
+  background-color: #ff4d4d;
+  box-shadow: 0 0 0.5rem #ff4d4d;
+}
+
+/* yellow = searching 4 connection */
+.dot.yellow {
+  background-color: #facc15;
+  box-shadow: 0 0 0.5rem rgba(250, 204, 21, 0.5);
+}
+
+.blink {
+  /* make light blink */
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.status-item small {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  color: var(--sys-light);
+  text-transform: uppercase;
+}
+
+.api-status-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ----- end [ACTIVITY LOG] styles (mobile) ----- */
