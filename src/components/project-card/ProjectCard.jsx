@@ -40,10 +40,10 @@ function ProjectCard({ cards, setActiveCard, isSystemHealthy, userRole }) {
                 <img src={detailsImg} alt={title} className="card-img" />
                 <div className="card-content">
                   <h3 className="card-header">
-                    {userRole === ROLES.DEVELOPER ? `Module: ${title}` : title}
+                    {userRole === ROLES.ADMIN ? `Module: ${title}` : title}
                   </h3>
                   <p className="card-description">
-                    {userRole === ROLES.DEVELOPER
+                    {userRole === ROLES.ADMIN
                       ? `Technical Specs: ${description.substring(0, 40)}... [View Source]`
                       : description}
                   </p>
@@ -57,11 +57,11 @@ function ProjectCard({ cards, setActiveCard, isSystemHealthy, userRole }) {
                     }}
                   >
                     <button className="view-link-btn">
-                      {userRole === ROLES.DEVELOPER
+                      {userRole === ROLES.ADMIN
                         ? "Inspect Code"
                         : `View Solution`}
                     </button>
-                    {userRole === ROLES.DEVELOPER && (
+                    {userRole === ROLES.ADMIN && (
                       <span className="stable-version">v1.0.4-stable</span>
                     )}
                   </div>

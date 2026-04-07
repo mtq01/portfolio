@@ -5,7 +5,6 @@ import { ActivityLogProvider } from "./components/activity-log/context/ActivityL
 import MainLayout from "./components/main/MainLayout";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
-import Contact from "./components/pages/Contact";
 import "./App.css";
 import { useEffect } from "react";
 // import ActivityLogUI from "./components/activity-log/ActivityLogUI";
@@ -25,7 +24,6 @@ return (
             {/* children: render unique child layouts 2nd */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
           </Route>
         </Routes>
       </BrowserRouter>
