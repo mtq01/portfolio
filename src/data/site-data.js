@@ -214,10 +214,10 @@ export const contactLinks = {
   },
   github: {
     label: "GitHub",
-    href: `https://github.com/${import.meta.env.VITE_GITHUB_USER}`,
+    href: `https://${import.meta.env.VITE_GITHUB_USER}`,
   },
   linkedin: {
     label: "LinkedIn",
-    href: `https://linkedin.com/in/${import.meta.env.VITE_LINKEDIN_USER}`,
+    href: `https://${import.meta.env.VITE_LINKEDIN_USER}`,
   },
 };
