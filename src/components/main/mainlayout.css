@@ -95,11 +95,12 @@
     flex-direction: column;
     padding: 0.25rem 0.5rem;
     overflow-y: hidden;
+    
 }
 
 .aside-container,
 .card-item {
-    background-color: var(--bg-panel);
+    background-color: var(--bg-dark);
     border: 0.0625rem solid var(--border-subtle);
     backdrop-filter: blur(10px);
 }

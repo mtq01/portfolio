@@ -131,6 +131,53 @@
   justify-content: space-between;
 }
 
+
+/* system monitor style */
+.aside-header-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0 0.5rem 0;
+}
+
+.aside-title {
+  margin: 0;
+}
+
+.system-monitor-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: #1a1a1a;
+  border-radius: 1.25rem;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.system-monitor-toggle.live {
+  border-color: #00ff8c33;
+}
+
+.system-monitor-toggle.offline {
+  border-color: #ff4d4d33;
+}
+
+.system-monitor-status {
+  font-size: 0.6rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.system-monitor-toggle.live .system-monitor-status {
+  color: var(--sys-green);
+}
+
+.system-monitor-toggle.offline .system-monitor-status {
+  color: var(--sys-red);
+}
+
 /* ----- end [ACTIVITY LOG] styles (mobile) ----- */
 
 /* ----- [DESKTOP] styles ----- */

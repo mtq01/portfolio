@@ -1,7 +1,7 @@
 // +++++++++ roles
 export const ROLES = {
   GUEST: 'guest',
-  DEVELOPER: 'developer'
+  ADMIN: 'admin'
 };
 
 

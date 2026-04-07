@@ -10,7 +10,7 @@
     /* fallback height */
     height: 100dvh;
     /* darkens the background */
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--overlay-dark);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    border: 0.125rem solid rgb(0, 255, 140);
+    border: 0.125rem solid var(--sys-green);
     border-radius: 1rem;
     margin: 1rem;
     z-index: 10;
@@ -46,8 +46,8 @@
     top: 0.5rem;
     right: 0.5rem;
     /* close btn bg */
-    background: rgba(255, 255, 255, 0);
-    border: 0.125rem solid rgba(255, 255, 255, 0.905);
+    background: var(--sys-dark);
+    border: 0.125rem solid #ffffffe7;
     border-radius: 50%;
     /* 'X' color & btn size */
     color: #fff;
@@ -66,9 +66,9 @@
 }
 
 .close-btn:hover {
-    background: rgb(0, 0, 0);
+    background: var(--bg-dark);
     color: #fff;
-    border: 0.125rem solid red;
+    border: 0.125rem solid var(--sys-red);
 }
 
 
@@ -81,5 +81,4 @@
         max-width: 90vw;
         max-height: 50vh;
     }
-
 }
