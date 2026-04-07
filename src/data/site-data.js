@@ -201,110 +201,23 @@ export const strengths = {
   },
 };
 
-
-
-
-
-
-
-
-
 // ++++++++++ CONTACT DATA ++++++++++
-export const contactInfo = {
-  // key
+
+/* 
+an attempt to conceal my personal data from basic bots scraping my site lol.
+wont stop anyone who is determined... or who looks at my code lmao 
+*/
+export const contactLinks = {
   email: {
-    heroImg: ["/src/assets/toy-story.jpg"],
-    title: "Email",
-    caption: "A collaborative React movie database built for film lovers.",
-    features: [
-      "Hero Carousel",
-      "Trailer Popup",
-      "Routing",
-      "API",
-      "Favorites",
-      "Card Layout",
-      "Regex",
-    ],
-    contributors: ["Mike", "Mahtab", "Michelle"],
-    cards: [
-      {
-        title: "Routing",
-        detailsImg: "/src/assets/street-fighter.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-      {
-        title: "Trailer Popup",
-        detailsImg: "/src/assets/street-fighter.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-      {
-        title: "Carousel",
-        detailsImg: "/src/assets/street-fighter.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-    ],
+    label: "Email",
+    href: `${import.meta.env.VITE_EMAIL_USER}@${import.meta.env.VITE_EMAIL_DOMAIN}`,
   },
-  // key
-  GitHub: {
-    heroImg: ["/src/assets/street-fighter.jpg"],
-    title: "GitHub",
-    caption: "A collaborative React movie database built for film lovers.",
-    features: [
-      "Feature One",
-      "Feature Two",
-      "Feature Three",
-      "Feature Four",
-      "Feature Five",
-    ],
-    cards: [
-      {
-        title: "Custom Post Types",
-        detailsImg: "/src/assets/toy-story.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-      {
-        title: "Non-Synced Patterns",
-        detailsImg: "/src/assets/toy-story.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-      {
-        title: "Card Three",
-        detailsImg: "/src/assets/toy-story.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-    ],
+  github: {
+    label: "GitHub",
+    href: `https://github.com/${import.meta.env.VITE_GITHUB_USER}`,
   },
-  // key
-  LinkedIn: {
-    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
-    title: "LinkedIn",
-    caption: "A collaborative React movie database built for film lovers.",
-    features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
-    cards: [
-      {
-        title: "Card A",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-      {
-        title: "Card B",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-      {
-        title: "Card C",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
-        description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
-      },
-    ],
+  linkedin: {
+    label: "LinkedIn",
+    href: `https://linkedin.com/in/${import.meta.env.VITE_LINKEDIN_USER}`,
   },
 };

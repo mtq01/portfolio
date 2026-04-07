@@ -1,14 +1,18 @@
 /* ++++++++++ start [HEADER] styles (mobile) ++++++++++ */
 
-/* breadcrumbs */
-.system-path {
-color: var(--text-dim);
-  font-size: 0.7rem;
-  opacity: 0.8;
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 0.5rem;
+  background: var(--bg-main);
+  border-bottom: 0.0625rem solid var(--border-subtle);
 }
 
+/* breadcrumbs */
+
 .page-title {
-padding: 0;
+  padding: 0;
   display: inline;
   font-size: 0.9rem;
   font-weight: 600;
@@ -19,8 +23,8 @@ padding: 0;
 
 /* name, job title */
 .user-meta {
-display: flex;
-  flex-direction: column; /* Stacked for better mobile fit */
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
   border-left: 1px solid var(--border-subtle);
   padding-left: 0.75rem;
@@ -31,13 +35,13 @@ display: flex;
   padding: 0;
   font-size: 0.85rem;
   letter-spacing: 0.05rem;
-  color: var(--sys-blue);
+  color: var(--user-role-dev);
 }
 
 .user-role {
   display: block;
   font-size: 0.55rem;
-  color: var(--text-dim);
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.05rem;
 }
@@ -57,25 +61,27 @@ display: flex;
   /* border around system status */
   border: 1px solid;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .header-status.online {
-  color: var(--sys-green);
-  border-color: rgba(1, 255, 141, 0.2);
-  background: rgba(1, 255, 141, 0.05);
+  color: var(--sys-status-online);
+  border-color: var(--sys-green);
+  background: var(--sys-status-online-bg);
 }
 
 .header-status.degraded {
-  color: var(--sys-red);
-  border-color: rgba(255, 77, 77, 0.2);
-  background: rgba(255, 77, 77, 0.05);
+  color: var(--sys-status-offline);
+  border-color: var(--sys-red);
+  background: var(--sys-status-offline-bg);
 }
 
 
 /* ++++++++++ start [DESKTOP] layout ++++++++++ */
 @media (min-width: 50rem) {
- .user-meta {
-    flex-direction: row; /* Back to side-by-side on desktop */
+  .user-meta {
+    flex-direction: row;
+    /* Back to side-by-side on desktop */
     align-items: center;
     padding-left: 1rem;
   }

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useActivityLog } from "./context/ActivityLogContext";
-import { LOG_TYPES } from "../../constants";
+import { LOG_TYPES, getRandomLog } from "../../constants";
 import "../activity-log/activity-log.css";
 
 // ++++++++++ log ui component

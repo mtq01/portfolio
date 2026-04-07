@@ -30,7 +30,7 @@
 }
 
 .log-time {
-  color: var(--text-main);
+  color: var(--overlay-text);
 }
 
 .log-entry.info {
@@ -132,3 +132,22 @@
 }
 
 /* ----- end [ACTIVITY LOG] styles (mobile) ----- */
+
+/* ----- [DESKTOP] styles ----- */
+@media (min-width: 50rem) {
+
+  .log-scroll {
+    min-height: 15.625rem;
+    height: 21rem;
+  }
+
+
+}
+
+@media (min-width: 80rem) {
+  .log-scroll {
+    height: 28rem;
+  }
+
+
+}
