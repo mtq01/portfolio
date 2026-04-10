@@ -3,7 +3,7 @@ function Hero({ project }) {
     const { title, heroImg, caption } = project;
     
     return (
-        <section className="hero border-radius box-shadow overlay">
+        <section className="hero border-radius box-shadow hero-overlay">
           <img src={heroImg} alt={title} className="hero-img" />
 
           <div className="hero-text">

@@ -67,6 +67,7 @@ function Home() {
       {/* Popup Component */}
       <Popup
         isOpen={activeCard !== null}
+        isLocked={activeCard?.isLocked}
         title={activeCard?.title}
         description={activeCard?.description}
         onClose={() => setActiveCard(null)}
