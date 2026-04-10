@@ -111,8 +111,8 @@ export const projects = {
     ],
     projectLinks:
       [
-        { src: githubIcon, alt: "Cinemax GitHub Repo" },
-        { src: liveSiteIcon, alt: "Cinemax Live Site" }
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://addurlhere.com" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://www.emburr.com/cloudytoyco" }
       ],
     features: [
       "Feature One",
@@ -161,8 +161,8 @@ export const projects = {
     ],
     projectLinks:
       [
-        { src: githubIcon, alt: "Cinemax GitHub Repo" },
-        { src: liveSiteIcon, alt: "Cinemax Live Site" }
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/portfolio" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://www.emburr.com" }
       ],
     features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
     cards: [
