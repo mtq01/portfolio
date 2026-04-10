@@ -107,15 +107,19 @@
     border-radius: 0.5rem;
     color: #fff;
     background: transparent;
-    border: 1px solid #fff;
     cursor: pointer;
+    text-decoration: underline;
+    border: 0.0625rem solid transparent;
+
 }
 
 .view-link-btn:hover {
     background: var(--sys-green);
     color: #000;
     border: 0.0625rem solid var(--sys-green);
+    text-decoration: none;
 }
+
 /* card access */
 .user-access-granted-icon {
     fill: var(--sys-green);
@@ -152,7 +156,8 @@
     width: 3rem;
     fill: #fff;
 }
-.offline-status-container{
+
+.offline-status-container {
     z-index: 10;
 }
 
