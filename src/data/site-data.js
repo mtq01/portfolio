@@ -1,3 +1,13 @@
+// import devicons
+import htmlIcon from "../assets/html5-original.svg";
+import cssIcon from "../assets/css3-original.svg";
+import reactIcon from "../assets/react-original.svg";
+import figmaIcon from "../assets/figma-original.svg";
+import wooIcon from "../assets/woocommerce-original.svg";
+import jsIcon from "../assets/javascript-original.svg";
+import githubIcon from "../assets/github.svg";
+import liveSiteIcon from "../assets/open-live.svg";
+
 // ++++++++++ PROJECTS DATA ++++++++++
 export const projects = {
   // key
@@ -5,6 +15,17 @@ export const projects = {
     heroImg: ["/src/assets/toy-story.jpg"],
     title: "Cinemax",
     caption: "A collaborative React movie database built for film lovers.",
+    stackIcon: [
+      { src: htmlIcon, alt: "HTML" },
+      { src: cssIcon, alt: "CSS" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
+    ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      ],
     features: [
       "Hero Carousel",
       "Trailer Popup",
@@ -80,6 +101,19 @@ export const projects = {
     heroImg: ["/src/assets/street-fighter.jpg"],
     title: "Cloudy Toys",
     caption: "A collaborative React movie database built for film lovers.",
+    stackIcon: [
+      { src: htmlIcon, alt: "Hypertext Markup Language" },
+      { src: cssIcon, alt: "Cascading Style Sheets" },
+      { src: jsIcon, alt: "JavaScript" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
+      { src: wooIcon, alt: "WooCommerce" },
+    ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site" }
+      ],
     features: [
       "Feature One",
       "Feature Two",
@@ -93,18 +127,24 @@ export const projects = {
         detailsImg: "/src/assets/toy-story.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
+        ctaText: "View CPT Solution",
+
       },
       {
         title: "Non-Synced Patterns",
         detailsImg: "/src/assets/toy-story.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
+        ctaText: "View Pattern Solution",
+
       },
       {
         title: "Card Three",
         detailsImg: "/src/assets/toy-story.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
+        ctaText: "View Card 3 Solution",
+
       },
     ],
   },
@@ -113,6 +153,17 @@ export const projects = {
     heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
     title: "Portfolio",
     caption: "A collaborative React movie database built for film lovers.",
+    stackIcon: [
+      { src: htmlIcon, alt: "Hypertext Markup Language" },
+      { src: cssIcon, alt: "Cascading Style Sheets" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
+    ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site" }
+      ],
     features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
     cards: [
       {
@@ -120,18 +171,24 @@ export const projects = {
         detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
+        ctaText: "View API Security Solution",
+
       },
       {
         title: "Card B",
         detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
+        ctaText: "View API Security Solution",
+
       },
       {
         title: "Card C",
         detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy, fixing a z-index issue where the navbar would sit on top of the popup.",
+        ctaText: "View API Security Solution",
+
       },
     ],
   },
@@ -146,8 +203,14 @@ export const strengths = {
   collaborative: {
     heroImg: ["/src/assets/toy-story.jpg"],
     title: "Collaborative",
-    ctaText: "About Page",
     caption: "A collaborative React movie database built for film lovers.",
+    stackIcon: [
+      "React",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Figma",
+    ],
     features: [
       "Hero Carousel",
       "Trailer Popup",
@@ -164,28 +227,39 @@ export const strengths = {
         detailsImg: "/src/assets/street-fighter.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+
       },
       {
         title: "Trailer Popup",
         detailsImg: "/src/assets/street-fighter.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+
       },
       {
         title: "Carousel",
         detailsImg: "/src/assets/street-fighter.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+
       },
     ],
   },
   // key
   Communication: {
     heroImg: ["/src/assets/street-fighter.jpg"],
-    ctaText: "About Page",
-
     title: "Communication",
     caption: "A collaborative React movie database built for film lovers.",
+    stackIcon: [
+      "React",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Figma",
+    ],
     features: [
       "Feature One",
       "Feature Two",
@@ -199,18 +273,21 @@ export const strengths = {
         detailsImg: "/src/assets/toy-story.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
       },
       {
         title: "Non-Synced Patterns",
         detailsImg: "/src/assets/toy-story.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
       },
       {
         title: "Card Three",
         detailsImg: "/src/assets/toy-story.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
       },
     ],
   },
@@ -218,7 +295,13 @@ export const strengths = {
   Analytical: {
     heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
     title: "Analytical",
-    ctaText: "About Page",
+    stackIcon: [
+      "React",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Figma",
+    ],
 
     caption: "A collaborative React movie database built for film lovers.",
     features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
@@ -228,18 +311,21 @@ export const strengths = {
         detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
       },
       {
         title: "Card B",
         detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
       },
       {
         title: "Card C",
         detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
         description:
           "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
       },
     ],
   },

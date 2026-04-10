@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
 /* Card Section */
@@ -29,7 +29,7 @@
     position: relative;
     overflow: hidden;
     border: 0.0625rem solid var(--border-subtle);
-    min-height: 22rem;
+    min-height: 16rem;
     cursor: pointer;
 }
 
@@ -103,8 +103,19 @@
 
 .view-link-btn {
     padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+    cursor: pointer;
 }
 
+.view-link-btn:hover {
+    background: var(--sys-green);
+    color: #000;
+    border: 0.0625rem solid var(--sys-green);
+}
 /* card access */
 .user-access-granted-icon {
     fill: var(--sys-green);
