@@ -205,12 +205,16 @@ export const strengths = {
     title: "Collaborative",
     caption: "A collaborative React movie database built for film lovers.",
     stackIcon: [
-      "React",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Figma",
+      { src: htmlIcon, alt: "HTML" },
+      { src: cssIcon, alt: "CSS" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
     ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      ],
     features: [
       "Hero Carousel",
       "Trailer Popup",
@@ -254,12 +258,16 @@ export const strengths = {
     title: "Communication",
     caption: "A collaborative React movie database built for film lovers.",
     stackIcon: [
-      "React",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Figma",
+      { src: htmlIcon, alt: "HTML" },
+      { src: cssIcon, alt: "CSS" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
     ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      ],
     features: [
       "Feature One",
       "Feature Two",
@@ -296,12 +304,16 @@ export const strengths = {
     heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
     title: "Analytical",
     stackIcon: [
-      "React",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Figma",
+      { src: htmlIcon, alt: "HTML" },
+      { src: cssIcon, alt: "CSS" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
     ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      ],
 
     caption: "A collaborative React movie database built for film lovers.",
     features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
