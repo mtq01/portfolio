@@ -341,6 +341,88 @@ export const strengths = {
       },
     ],
   },
+  Leadership: {
+    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
+    title: "Leadership",
+    stackIcon: [
+      { src: htmlIcon, alt: "HTML" },
+      { src: cssIcon, alt: "CSS" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
+    ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      ],
+
+    caption: "A collaborative React movie database built for film lovers.",
+    features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
+    cards: [
+      {
+        title: "BCITSA",
+        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        description:
+          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+      },
+      {
+        title: "Set Rep",
+        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        description:
+          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+      },
+      {
+        title: "????",
+        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        description:
+          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+      },
+    ],
+  },
+  Learner: {
+    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
+    title: "Learner",
+    stackIcon: [
+      { src: htmlIcon, alt: "HTML" },
+      { src: cssIcon, alt: "CSS" },
+      { src: reactIcon, alt: "React" },
+      { src: figmaIcon, alt: "Figma" },
+    ],
+    projectLinks:
+      [
+        { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
+        { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      ],
+
+    caption: "A collaborative React movie database built for film lovers.",
+    features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E"],
+    cards: [
+      {
+        title: "BCITSA",
+        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        description:
+          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+      },
+      {
+        title: "Set Rep",
+        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        description:
+          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+      },
+      {
+        title: "????",
+        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        description:
+          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+        ctaText: "About Page",
+      },
+    ],
+  },
 };
 
 // ++++++++++ CONTACT DATA ++++++++++
