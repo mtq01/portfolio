@@ -33,12 +33,23 @@ const Popup = ({ isOpen, onClose, title, description, isLocked }) => {
           {/* guest: popup content */}
           {isLocked ? (
             <>
-              <h2 id="popup-title">Access Restricted!</h2>
+              <h2 id="popup-title">Switch to Admin Mode</h2>
               <p>
-                This content is only available in <strong>Admin</strong> mode. Press the button in the sidebar to switch. No password is required.
+                Your current user role is set to: <strong>Guest</strong>
+              </p>
+              <p>
+                Click the toggle button in the navbar to enable{" "}
+                <strong>Admin</strong> access.
               </p>
 
-              <p>This is designed to simulate different types of available content based on a user role. This project is front end only and has no database for storage. </p>
+              <p>
+                This purpose of this feature is to simulate different types of
+                available content based on <strong>user roles</strong>.
+              </p>
+
+              <p>
+                This is a Front End project only and has no database for storage.
+              </p>
             </>
           ) : (
             // admin: popup content
@@ -47,9 +58,19 @@ const Popup = ({ isOpen, onClose, title, description, isLocked }) => {
               {Array.isArray(description) ? (
                 <div className="popup-description">
                   {description.map((block, i) => {
-                    if (block.type === "heading") return <p key={i}><strong>{block.text}</strong></p>
-                    if (block.type === "code") return <pre key={i}><code>{block.text}</code></pre>
-                    return <p key={i}>{block.text}</p>
+                    if (block.type === "heading")
+                      return (
+                        <p key={i}>
+                          <strong>{block.text}</strong>
+                        </p>
+                      );
+                    if (block.type === "code")
+                      return (
+                        <pre key={i}>
+                          <code>{block.text}</code>
+                        </pre>
+                      );
+                    return <p key={i}>{block.text}</p>;
                   })}
                 </div>
               ) : (

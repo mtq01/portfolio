@@ -18,7 +18,7 @@ function Home() {
   useEffect(() => {
     addLog(`Database: Initializing ${current.title} Module...`, LOG_TYPES.INFO);
     addLog(
-      `Success: Loaded ${current.features.length} documentation nodes for ${current.title}`,
+      `Success: Loaded ${current.contributors.length} documentation nodes for ${current.title}`,
       LOG_TYPES.SUCCESS,
     );
   }, [active, addLog]); // runs each time the active project changes

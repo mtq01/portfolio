@@ -9,7 +9,7 @@ import ProjectCard from "../project-card/ProjectCard";
 import Popup from "../popup/Popup";
 
 function About() {
-  const [active, setActive] = useState("collaborative");
+  const [active, setActive] = useState("leadership");
   const [activeCard, setActiveCard] = useState(null);
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
   const current = strengths[active];
@@ -18,7 +18,7 @@ function About() {
   useEffect(() => {
     addLog(`Database: Initializing ${current.title} Module...`, LOG_TYPES.INFO);
     addLog(
-      `Success: Loaded ${current.features.length} documentation nodes for ${current.title}`,
+      `Success: Loaded ${current.cards.length} documentation nodes for ${current.title}`,
       LOG_TYPES.SUCCESS,
     );
   }, [active, addLog]); // runs each time the active project changes
