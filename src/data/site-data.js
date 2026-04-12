@@ -236,7 +236,7 @@ export const projects = {
           { type: "heading", text: "Problem" },
           { type: "paragraph", text: "Hardcoding popup content directly in JSX means touching the component every time content changes. It also limits what you can render, plain strings can't express structure like headings, paragraphs, and code blocks." },
           { type: "heading", text: "Solution" },
-          { type: "paragraph", text: "Built a structured content system where each card stores an array of typed objects in the data file. The popup reads the type of each block and renders it accordingly, bold headings, paragraphs, and formatted code blocks, all driven by the data, not the component." }
+          { type: "paragraph", text: "Used a standalone .js file that acts as a global content manager for everything you see on the site. Arguably, this was still not the best option and in the future (with more time) I would use a Headless CMS and pull the data via the API." }
         ]
       },
     ],
@@ -281,7 +281,6 @@ export const strengths = {
         ctaText: "Expand Valedictorian",
         adminDescription: [
           { type: "paragraph", text: "Nominated for valedictorian by my classmates at the end of the program." },
-          { type: "paragraph", text: "No campaign, no politics, just a vote from the people who watched you show up every day. Still waiting on the result, but the nomination alone felt like the real win." },
         ]
       },
     ],
