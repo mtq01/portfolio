@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { emburr } from "./globals/globals.js";
 import { ActivityLogProvider } from "./components/activity-log/context/ActivityLogContext";
 import MainLayout from "./components/main/MainLayout";
 import Home from "./components/pages/Home";
@@ -14,7 +15,7 @@ function App() {
 
 return (
     <ActivityLogProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Routes>
           {/* parent: outlet route (render main layout 1st */}
           <Route element={<MainLayout />}>

@@ -1,2 +1,7 @@
+// reuquired for deployment
+const emburr = "emburr";
+
 // required for dynamic page title
-export const appTitle = "EMBURR";
+const appTitle = "EMBURR";
+
+export { emburr, appTitle };
