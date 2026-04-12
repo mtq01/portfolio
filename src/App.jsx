@@ -15,7 +15,7 @@ function App() {
 
 return (
     <ActivityLogProvider>
-      <BrowserRouter basename={`/${emburr}`}>
+      <BrowserRouter basename="/">
         <Routes>
           {/* parent: outlet route (render main layout 1st */}
           <Route element={<MainLayout />}>
