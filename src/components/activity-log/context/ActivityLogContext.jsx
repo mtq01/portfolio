@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useCallback } from "react";
+import { createContext, useState, useContext, useCallback } from "react";
 import { LOG_TYPES, generateHexId } from "../../../constants";
 
 const ActivityLogContext = createContext();

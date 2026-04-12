@@ -2,7 +2,7 @@
 .nav-activity-log {
   background: var(--bg-dark);
   padding: 0;
-  font-family: 'Roboto', 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   width: 100%;
   height: 100%;
@@ -63,7 +63,7 @@
   gap: 1rem;
   padding: 0.5rem 0.75rem;
   background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-subtle);
   margin-bottom: 0.0625rem;
 }
 
@@ -81,27 +81,32 @@
   display: inline-block;
   transition: all 0.3s ease;
 }
+/* svg: live / offline toggle */
+.toggle-icon {
+    width: 0.9rem;
+    fill: #fff;
+}
 
 /* green = online / healthy */
 .dot.green {
-  background-color: #4ade80;
-  box-shadow: 0 0 0.5rem #4ade80;
+  background-color: var(--sys-green);
+  box-shadow: 0 0 0.5rem var(--sys-green);
 }
 
 /* red = offline / error */
 .dot.red {
-  background-color: #ff4d4d;
-  box-shadow: 0 0 0.5rem #ff4d4d;
+  background-color: var(--sys-red);
+  box-shadow: 0 0 0.5rem var(--sys-red);
 }
 
 /* yellow = searching 4 connection */
 .dot.yellow {
   background-color: #facc15;
-  box-shadow: 0 0 0.5rem rgba(250, 204, 21, 0.5);
+  box-shadow: 0 0 0.5rem #facc1580;
 }
 
+/* make lights blink */
 .blink {
-  /* make light blink */
   animation: blink 1s infinite;
 }
 
@@ -156,12 +161,19 @@
   transition: border-color 0.3s ease;
 }
 
+
 .system-monitor-toggle.live {
   border-color: #00ff8c33;
+}
+.system-monitor-toggle.live:hover {
+  border: 0.0625rem solid var(--sys-green);
 }
 
 .system-monitor-toggle.offline {
   border-color: #ff4d4d33;
+}
+.system-monitor-toggle.offline:hover {
+  border: 0.0625rem solid var(--sys-red);
 }
 
 .system-monitor-status {

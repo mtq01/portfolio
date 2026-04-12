@@ -42,7 +42,7 @@ const ActivityLogUI = () => {
     <div className="nav-activity-log" aria-label="System Activity Monitor">
       {/* status bar */}
       <div className="api-status-bar">
-        {/* bigComm: reacts to the API health */}
+        {/* database: reacts to the API health */}
         <div
           className="status-item"
           title={!isSystemHealthy ? "Offline" : "Online"}
@@ -56,7 +56,7 @@ const ActivityLogUI = () => {
           </small>
         </div>
 
-        {/* gesso: reacts to the system state */}
+        {/* system: reacts to the system state */}
         <div
           className="status-item"
           title={isSystemHealthy ? "Searching for Connection" : "System Online"}

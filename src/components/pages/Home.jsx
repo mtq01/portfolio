@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
 import { projects } from "../../data/site-data";
 import { LOG_TYPES } from "../../constants";
+import { appTitle } from "../../globals/globals.js";
 import ProjectTiles from "../project-tiles/ProjectTiles";
 import Hero from "../hero/Hero";
 import SystemMonitor from "../aside/SystemMonitor";
 import ProjectCard from "../project-card/ProjectCard";
 import Popup from "../popup/Popup";
+
+
 
 function Home() {
   const [active, setActive] = useState("cinemax");
@@ -14,11 +17,16 @@ function Home() {
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
   const current = projects[active];
 
+  // dynamic page title
+  useEffect(() => {
+    document.title = `Home | ${appTitle}`;
+  }, []);
+
   // log: project tabs
   useEffect(() => {
     addLog(`Database: Initializing ${current.title} Module...`, LOG_TYPES.INFO);
     addLog(
-      `Success: Loaded ${current.features.length} documentation nodes for ${current.title}`,
+      `Success: Loaded ${current.contributors.length} documentation nodes for ${current.title}`,
       LOG_TYPES.SUCCESS,
     );
   }, [active, addLog]); // runs each time the active project changes
@@ -67,6 +75,7 @@ function Home() {
       {/* Popup Component */}
       <Popup
         isOpen={activeCard !== null}
+        isLocked={activeCard?.isLocked}
         title={activeCard?.title}
         description={activeCard?.description}
         onClose={() => setActiveCard(null)}

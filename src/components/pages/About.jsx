@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
 import { strengths } from "../../data/site-data";
 import { LOG_TYPES } from "../../constants";
+import { appTitle } from "../../globals/globals.js";
 import ProjectTiles from "../project-tiles/ProjectTiles";
 import Hero from "../hero/Hero";
 import SystemMonitor from "../aside/SystemMonitor";
@@ -9,16 +10,21 @@ import ProjectCard from "../project-card/ProjectCard";
 import Popup from "../popup/Popup";
 
 function About() {
-  const [active, setActive] = useState("collaborative");
+  const [active, setActive] = useState("leadership");
   const [activeCard, setActiveCard] = useState(null);
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
   const current = strengths[active];
+
+    // dynamic page title
+    useEffect(() => {
+      document.title = `About | ${appTitle}`;
+    }, []);
 
   // log: project tabs
   useEffect(() => {
     addLog(`Database: Initializing ${current.title} Module...`, LOG_TYPES.INFO);
     addLog(
-      `Success: Loaded ${current.features.length} documentation nodes for ${current.title}`,
+      `Success: Loaded ${current.cards.length} documentation nodes for ${current.title}`,
       LOG_TYPES.SUCCESS,
     );
   }, [active, addLog]); // runs each time the active project changes
@@ -67,6 +73,7 @@ function About() {
       {/* Popup Component */}
       <Popup
         isOpen={activeCard !== null}
+        isLocked={activeCard?.isLocked}
         title={activeCard?.title}
         description={activeCard?.description}
         onClose={() => setActiveCard(null)}
