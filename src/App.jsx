@@ -1,5 +1,3 @@
-// import Header from "./components/header/Header";
-// import Nav from "./components/nav/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ActivityLogProvider } from "./components/activity-log/context/ActivityLogContext";
 import MainLayout from "./components/main/MainLayout";
@@ -7,7 +5,6 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import "./App.css";
 import { useEffect } from "react";
-// import ActivityLogUI from "./components/activity-log/ActivityLogUI";
 
 function App() {
   // dynamic page title

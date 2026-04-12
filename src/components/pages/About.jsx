@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
 import { strengths } from "../../data/site-data";
 import { LOG_TYPES } from "../../constants";
+import { appTitle } from "../../globals/globals.js";
 import ProjectTiles from "../project-tiles/ProjectTiles";
 import Hero from "../hero/Hero";
 import SystemMonitor from "../aside/SystemMonitor";
@@ -13,6 +14,11 @@ function About() {
   const [activeCard, setActiveCard] = useState(null);
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } = useActivityLog();
   const current = strengths[active];
+
+    // dynamic page title
+    useEffect(() => {
+      document.title = `About | ${appTitle}`;
+    }, []);
 
   // log: project tabs
   useEffect(() => {

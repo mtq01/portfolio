@@ -12,7 +12,7 @@ import liveSiteIcon from "../assets/open-live.svg";
 export const projects = {
   // key
   cinemax: {
-    heroImg: ["/src/assets/toy-story.jpg"],
+    heroImg: ["/src/assets/mk-dragon.webp"],
     title: "Cinemax",
     caption: "A collaborative React movie database built for film lovers.",
     stackIcon: [
@@ -34,8 +34,8 @@ export const projects = {
     cards: [
       {
         title: "Accessibility System",
-        detailsImg: "/src/assets/street-fighter.jpg",
-        ctaText: "Accessibility Details",
+        detailsImg: "/src/assets/cage.webp",
+        ctaText: "Expand Accessibility System",
         description:
           "Z-index conflict buried the popup under the navbar.",
         // there has to be a better MF way to put the unique data each card... rn i loop thru this array in Popup.jsx
@@ -48,8 +48,8 @@ export const projects = {
       },
       {
         title: "API Security",
-        detailsImg: "/src/assets/street-fighter.jpg",
-        ctaText: "API Security Details",
+        detailsImg: "/src/assets/raiden2.webp",
+        ctaText: "Expand API Security",
         description:
           "Shipped with a visible API key, here's what we learned.",
         adminDescription: [
@@ -76,8 +76,8 @@ export const projects = {
       },
       {
         title: "Trailer Popup",
-        detailsImg: "/src/assets/street-fighter.jpg",
-        ctaText: "Popup Details",
+        detailsImg: "/src/assets/mortal-kombat.webp",
+        ctaText: "Expand Trailer Popup",
         description:
           "Built for keyboard users, screen readers, and mobile from the ground up.",
         adminDescription: [
@@ -93,7 +93,7 @@ export const projects = {
   },
   // key
   cloudyToys: {
-    heroImg: ["/src/assets/street-fighter.jpg"],
+    heroImg: ["/src/assets/rex.webp"],
     title: "Cloudy Toys",
     caption: "A fun Toy Store built with WooCommerce",
     stackIcon: [
@@ -110,15 +110,15 @@ export const projects = {
         { src: liveSiteIcon, alt: "Cloudy Toys Live Site", url: "https://www.emburr.com/cloudytoyco" }
       ],
     contributors: [
-      { name: "Mike", url: "https://www.linkedin.com/in/miketickell" },
-      { name: "Mahtab", url: "https://www.linkedin.com/in/mahtab-salimzadeh/" },
-      { name: "Cloue", url: "https://www.linkedin.com" },
-      { name: "Faith", url: "https://www.linkedin.com/in/faith-lumba-355026323/" },
+      { name: "Mike", url: `https://${import.meta.env.VITE_LINKEDIN_USER}` },
+      { name: "Mahtab", url: `https://${import.meta.env.VITE_LINKEDIN_MSZ}` },
+      { name: "Cloue", url: `https://${import.meta.env.VITE_LINKEDIN_CM}` },
+      { name: "Faith", url: `https://${import.meta.env.VITE_LINKEDIN_FL}` },
     ],
     cards: [
       {
         title: "Custom Post Types",
-        detailsImg: "/src/assets/toy-story.jpg",
+        detailsImg: "/src/assets/toystory5.webp",
         ctaText: "Expand Custom Post Types",
         description:
           "A booking plugin's private database almost ruined our carousel.",
@@ -146,7 +146,7 @@ export const projects = {
       },
       {
         title: "Featured Products",
-        detailsImg: "/src/assets/toy-story.jpg",
+        detailsImg: "/src/assets/buzz.webp",
         ctaText: "Expand Featured Products",
         description:
           "Currently in progress. Please check back soon.",
@@ -161,7 +161,7 @@ export const projects = {
   },
   // key
   portfolio: {
-    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
+    heroImg: ["/src/assets/alex_agrico-twilight-7479665_1920.webp"],
     title: "Portfolio",
     caption: "A collaborative React movie database built for film lovers.",
     stackIcon: [
@@ -176,12 +176,12 @@ export const projects = {
         { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://www.emburr.com" }
       ],
     contributors: [
-      { name: "Mike", url: "https://www.linkedin.com/in/miketickell" },
+      { name: "Mike", url: `https://${import.meta.env.VITE_LINKEDIN_USER}` },
     ],
     cards: [
       {
         title: "User Roles (Guest/Admin)",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/yt_ggfischlul-mountain-7690893_1920.webp",
         ctaText: "Expand User Roles",
         description:
           "Two users, two experiences. Built without a backend.",
@@ -195,7 +195,7 @@ export const projects = {
       },
       {
         title: "Activity Log",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/rkarkowski-moon.webp",
         ctaText: "Expand Activity Log",
         description:
           "Every action logged. Every state change visible.",
@@ -203,21 +203,21 @@ export const projects = {
           { type: "heading", text: "Problem" },
           { type: "paragraph", text: "Debugging and understanding what's happening inside an app is hard when state changes are invisible. A portfolio site also needs something that makes an interviewer stop and interact with it." },
           { type: "heading", text: "Solution" },
-          { type: "paragraph", text: "Built a global activity log using React Context that any component can write to without prop drilling. Every user action, switching projects, clicking cards, toggling roles, going offline — gets logged in real time with color coded status types (info, success, error)." }
+          { type: "paragraph", text: "Built a global activity log using React Context that any component can write to without prop drilling. Every user action, switching projects, clicking cards, toggling roles, going offline, gets logged in real time with color coded status types (info, success, error)." }
 
         ]
       },
       {
         title: "Content Architecture",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/chiemseherin-terrace.webp",
         ctaText: "Expand Content Architecture",
         description:
           "Content lives in the data, not the components.",
         adminDescription: [
           { type: "heading", text: "Problem" },
-          { type: "paragraph", text: "Hardcoding popup content directly in JSX means touching the component every time content changes. It also limits what you can render — plain strings can't express structure like headings, paragraphs, and code blocks." },
+          { type: "paragraph", text: "Hardcoding popup content directly in JSX means touching the component every time content changes. It also limits what you can render, plain strings can't express structure like headings, paragraphs, and code blocks." },
           { type: "heading", text: "Solution" },
-          { type: "paragraph", text: "Built a structured content system where each card stores an array of typed objects in the data file. The popup reads the type of each block and renders it accordingly — bold headings, paragraphs, and formatted code blocks — all driven by the data, not the component." }
+          { type: "paragraph", text: "Built a structured content system where each card stores an array of typed objects in the data file. The popup reads the type of each block and renders it accordingly, bold headings, paragraphs, and formatted code blocks, all driven by the data, not the component." }
 
         ]
       },
@@ -232,43 +232,43 @@ export const projects = {
 export const strengths = {
   // key
   leadership: {
-    heroImg: ["/src/assets/toy-story.jpg"],
+    heroImg: ["/src/assets/leadership.png"],
     title: "Leadership",
-    caption: "A collaborative React movie database built for film lovers.",
+    caption: "The ability to get people to support eachother to achieve a common goal.",
 
     cards: [
       {
         title: "BCITSa Peak Leadership",
-        detailsImg: "/src/assets/street-fighter.jpg",
+        detailsImg: "/src/assets/peak-leadership.png",
         description:
           "Pitched an AI startup idea to real entrepreneurs.",
         ctaText: "Expand BCITSa",
         adminDescription: [
-          { type: "paragraph", text: "Took part in BCIT's Peak Leadership program — a six week course built around teamwork, communication, and leadership under pressure." },
+          { type: "paragraph", text: "Took part in BCIT's Peak Leadership program, a six week course built around teamwork, communication, and leadership under pressure." },
           { type: "paragraph", text: "Our team developed an AI-driven concept focused on environmental impact and pitched it Dragons Den style to a panel of local entrepreneurs. Not a real business, but a real pitch to real people." },
         ]
       },
       {
         title: "Set Rep",
-        detailsImg: "/src/assets/street-fighter.jpg",
+        detailsImg: "/src/assets/captain.png",
         description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+          "El Capitan. Chosen by my class as the person to have their back.",
         ctaText: "Expand Set Rep",
         adminDescription: [
-          { type: "paragraph", text: "Served as class Set Rep — the go-to person when students had questions, concerns, or needed to navigate the system." },
+          { type: "paragraph", text: "Served as class Set Rep,the go-to person when students had questions, concerns, or needed to navigate the system." },
           { type: "paragraph", text: "Helped connect classmates to counselling, tutoring, medical and dental support, and other resources. Spent a lot of time working behind the scenes advocating for people who didn't know where to turn." },
         ]
 
       },
       {
         title: "Valedictorian (Nominee)",
-        detailsImg: "/src/assets/street-fighter.jpg",
+        detailsImg: "/src/assets/valedictorian.png",
         description:
-          "Built a trailer modal that uses createPortal to escape the carousel's DOM hierarchy.",
+          "The class voted. Apparently I did something right.",
         ctaText: "Expand Valedictorian",
         adminDescription: [
           { type: "paragraph", text: "Nominated for valedictorian by my classmates at the end of the program." },
-          { type: "paragraph", text: "No campaign, no politics — just a vote from the people who watched you show up every day. Still waiting on the result, but the nomination alone felt like the real win." },
+          { type: "paragraph", text: "No campaign, no politics, just a vote from the people who watched you show up every day. Still waiting on the result, but the nomination alone felt like the real win." },
         ]
 
       },
@@ -276,41 +276,41 @@ export const strengths = {
   },
   // key
   achiever: {
-    heroImg: ["/src/assets/street-fighter.jpg"],
+    heroImg: ["/src/assets/effort.png"],
     title: "Achiever",
     caption: "Everyday starts at zero and ends with something done.",
 
     cards: [
       {
         title: "Drive",
-        detailsImg: "/src/assets/toy-story.jpg",
+        detailsImg: "/src/assets/drive.png",
         description:
           "The internal fire that keeps pushing forward.",
-        ctaText: "About Page",
+        ctaText: "Expand Drive",
         adminDescription: [
-          { type: "paragraph", text: "Achievers have a constant need for attainment. Every day feels like it starts at zero — and by the end of it, something meaningful needs to get done." },
+          { type: "paragraph", text: "Achievers have a constant need for attainment. Every day feels like it starts at zero, and by the end of it, something meaningful needs to get done." },
           { type: "paragraph", text: "This isn't about burning out. It's about showing up consistently and taking satisfaction in the work itself, not just the finish line." },
         ]
       },
       {
         title: "Stamina",
-        detailsImg: "/src/assets/toy-story.jpg",
+        detailsImg: "/src/assets/stamina.png",
         description:
           "Built for the long haul, not just the sprint.",
-        ctaText: "About Page",
+        ctaText: "Expand Stamina",
         adminDescription: [
-          { type: "paragraph", text: "The ability to concentrate on tasks from start to finish — mentally and physically — is something that comes naturally." },
+          { type: "paragraph", text: "The ability to concentrate on tasks from start to finish, mentally and physically, is something that comes naturally." },
           { type: "paragraph", text: "When something needs to get done, the energy is there. Not just at the start of a project, but through the middle and the messy parts too." },
         ]
       },
       {
         title: "Productivity",
-        detailsImg: "/src/assets/toy-story.jpg",
+        detailsImg: "/src/assets/productivity.png",
         description:
           "The goal is progress.",
-        ctaText: "About Page",
+        ctaText: "Expand Productivity",
         adminDescription: [
-          { type: "paragraph", text: "There's a difference between being busy and being productive. The goal is always meaningful output — not just activity for the sake of it." },
+          { type: "paragraph", text: "There's a difference between being busy and being productive. The goal is always meaningful output, not just activity for the sake of it." },
           { type: "paragraph", text: "Taking immense satisfaction in checking things off, finishing what was started, and doing it well." },
         ]
       },
@@ -318,123 +318,122 @@ export const strengths = {
   },
   // key
   analytical: {
-    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
+    heroImg: ["/src/assets/think.png"],
     title: "Analytical",
     caption: "Show me the data & then let's figure out why.",
     
     cards: [
       {
         title: "Problem Solving",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/problem-solve.png",
         description:
-          "Break it down. Find the root. Fix the right thing.",
-        ctaText: "About Page",
+          "Break it down. Find the root. Fix it & solve the problem.",
+        ctaText: "Expand Problem Solving",
         adminDescription: [
-          { type: "paragraph", text: "The instinct when facing a problem is to identify the actual cause — not just the symptom. Jumping to a solution before understanding the problem usually means solving the wrong thing." },
+          { type: "paragraph", text: "The instinct when facing a problem is to identify the actual cause, not just the symptom. Jumping to a solution before understanding the problem usually means solving the wrong thing." },
           { type: "paragraph", text: "A methodical, step-by-step approach to breaking down what's actually happening tends to lead to cleaner, more lasting fixes." },
         ]
       },
       {
         title: "Critical Thinking",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/critical-thinking.png",
         description:
-          "If it sounds too simple, somethings missing.",
-        ctaText: "About Page",
+          "If it sounds too simple, something is probably missing.",
+        ctaText: "Expand Critical Thinking",
         adminDescription: [
-          { type: "paragraph", text: "Taking a critical approach to what others might quickly accept as true. Not contrarian — just thorough. Facts and reason over assumption and emotion." },
+          { type: "paragraph", text: "Taking a critical approach to what others might quickly accept as true. Not contrarian, just thorough. Facts and reason over assumption and emotion." },
           { type: "paragraph", text: "This shows up in code reviews, in planning, and in how decisions get made. Always asking why before accepting how." },
         ]
       },
       {
         title: "Pattern Recognition",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/pattern-recognition.png",
         description:
-          "The data tells a story if you know how to read it.",
-        ctaText: "About Page",
+          "Everything has a pattern that tells a story if you know how to read it.",
+        ctaText: "Expand Pattern Recognition",
         adminDescription: [
-          { type: "paragraph", text: "The ability to spot patterns — in data, in behavior, in systems — and understand how they interact is something that comes naturally." },
+          { type: "paragraph", text: "The ability to spot patterns, in data, in behavior, in systems, and understand how they interact is something that comes naturally." },
           { type: "paragraph", text: "Whether it's identifying why a bug keeps reappearing or noticing where a team keeps getting stuck, recognizing the pattern is usually the hardest and most valuable part." },
         ]
       },
     ],
   },
   learner: {
-    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
+    heroImg: ["/src/assets/skills.png"],
     title: "Learner",
     caption: "The learning process matters as much as the outcome.",
 
     cards: [
       {
         title: "Curiosity",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/curiosity.png",
         description:
-          "If something is interesting, im going deep on it.",
-        ctaText: "About Page",
+          "If something is interesting, im going down the rabbit hole.",
+        ctaText: "Expand Curiosity",
         adminDescription: [
-          { type: "paragraph", text: "When something sparks curiosity — a concept, a problem, a tool — the natural response is to go deep on it. Not just skim the surface." },
+          { type: "paragraph", text: "When something sparks curiosity, a concept, a problem, a tool, the natural response is to go deep on it. Not just skim the surface." },
           { type: "paragraph", text: "This applies to code, design, business, and pretty much everything else. The thrill of figuring something out is hard to replicate." },
         ]
       },
       {
         title: "Continuous Improvement",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/improve.png",
         description:
-          "The last version is never the final version.",
-        ctaText: "About Page",
+          "The last version is never the final chapter. You can always improve.",
+        ctaText: "Expand Cotinuous Improvement",
         adminDescription: [
           { type: "paragraph", text: "There's always something to refine, upgrade, or rethink. Comfort with the current state of things isn't really in the vocabulary." },
-          { type: "paragraph", text: "Whether it's a codebase, a process, or a skill — the question is always what could be better, and how to get there." },
+          { type: "paragraph", text: "Whether it's a codebase, a process, or a skill, the question is always what could be better, and how to get there." },
         ]
       },
       {
         title: "Resilience",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/resilience.png",
         description:
-          "Hard things are more interesting than easy ones.",
-        ctaText: "About Page",
+          "Doing what's hard develops more character the easy path will never produce.",
+        ctaText: "Expand Resilience",
         adminDescription: [
-          { type: "paragraph", text: "Preferring rigorous challenges over easy ones isn't masochism — it's how real learning happens. The difficult stuff is where the growth is." },
+          { type: "paragraph", text: "Preferring rigorous challenges over easy ones isn't masochism, it's how real learning happens. The difficult stuff is where the growth is." },
           { type: "paragraph", text: "Trusting the process of working through something uncomfortable and coming out the other side with a skill that actually sticks." },
         ]
       },
     ],
   },
   harmony: {
-    heroImg: ["/src/assets/pexels-pavel-danilyuk-7234276.jpg"],
+    heroImg: ["/src/assets/harmony.png"],
     title: "Harmony",
     caption: "Less friction. More progress.",
 
     cards: [
       {
         title: "Teamwork",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/teamwork.png",
         description:
-          "A respected team is a high functioning team.",
-        ctaText: "About Page",
+          "A team can only perform at its highest level if its highly respected.",
+        ctaText: "Expand Teamwork",
         adminDescription: [
-          { type: "paragraph", text: "Strong teams aren't built on agreement — they're built on mutual respect and the ability to work through differences without unnecessary friction." },
+          { type: "paragraph", text: "Strong teams aren't built on agreement, they're built on mutual respect and the ability to work through differences without unnecessary friction." },
           { type: "paragraph", text: "The goal is always to find the practical path forward that everyone can get behind, even when people are coming from different directions." },
         ]
       },
       {
         title: "Conflict Resolution",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/conflict-resolution.png",
         description:
           "Tension doesn't disappear on its own. Someone has to address it.",
-        ctaText: "About Page",
+        ctaText: "Expand Conflict Resolution",
         adminDescription: [
-          { type: "paragraph", text: "When conflict shows up in a team — and it always does — the instinct is to steer toward reconciliation rather than escalation." },
+          { type: "paragraph", text: "When conflict shows up in a team, and it always does, the instinct is to steer toward reconciliation rather than escalation." },
           { type: "paragraph", text: "Finding the common ground, helping people see each other's perspective, and redirecting energy toward the work rather than the argument." },
         ]
       },
       {
         title: "Negotiation",
-        detailsImg: "/src/assets/pexels-pavel-danilyuk-7234238.jpg",
+        detailsImg: "/src/assets/negotiate.png",
         description:
-          "If everybody wins, nobody wins.",
-        ctaText: "About Page",
+          "If everybody wins, nobody wins. The best outcome is true and workable.",
+        ctaText: "Expand Negotiation",
         adminDescription: [
-          { type: "paragraph", text: "A quote from Chris Voss — FBI hostage negotiator and author of Never Split the Difference — that stuck." },
           { type: "paragraph", text: "Real consensus isn't about making everyone happy or splitting the difference. It's about finding the solution that actually works, even if it means someone doesn't get exactly what they wanted." },
           { type: "paragraph", text: "Harmony isn't conflict avoidance. It's knowing when to push for the right answer instead of the comfortable one." },
         ]

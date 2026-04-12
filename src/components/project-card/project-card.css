@@ -21,6 +21,7 @@
     grid-row: 1;
     grid-column: 1 / 13;
     font-size: 1rem;
+    color: var(--text-main);
 }
 
 .card-one,
@@ -180,7 +181,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.783), rgba(0, 0, 0, 0.386));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.641), rgba(0, 0, 0, 0.734));
 }
 
 

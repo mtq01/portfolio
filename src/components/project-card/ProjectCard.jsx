@@ -7,7 +7,7 @@ function ProjectCard({ cards, setActiveCard, isSystemHealthy, userRole }) {
 
   return (
     <section className="card-container">
-      <h2 className="card-title">Problems & Solutions</h2>
+      <h2 className="card-title">Details</h2>
 
       {/* creates a new div for each card in the array & assigns a unique grid class to each (ex: card-one) */}
       {cards.map((card, index) => {
