@@ -59,7 +59,7 @@ export const projects = {
     ],
     projectLinks: [
       { src: githubIcon, alt: "Cinemax GitHub Repo", url: "https://github.com/mtq01/m3-movie-app" },
-      { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://emburr.com/cinemax" },
+      { src: liveSiteIcon, alt: "Cinemax Live Site", url: "https://cinemax.emburr.com" },
     ],
     contributors: [
       { name: "Mike", url: `https://${import.meta.env.VITE_LINKEDIN_USER}` },
@@ -136,8 +136,8 @@ export const projects = {
       { src: wooIcon, alt: "WooCommerce" },
     ],
     projectLinks: [
-      { src: githubIcon, alt: "Cloudy Toys GitHub Repo", url: "https://addurlhere.com" },
-      { src: liveSiteIcon, alt: "Cloudy Toys Live Site", url: "https://www.emburr.com/cloudytoyco" }
+      { src: githubIcon, alt: "Cloudy Toys GitHub Repo", url: "https://github.com/mtq01/cloudy-toy-theme" },
+      { src: liveSiteIcon, alt: "Cloudy Toys Live Site", url: "https://cloudytoy.bcitwebdeveloper.ca/" }
     ],
     contributors: [
       { name: "Mike", url: `https://${import.meta.env.VITE_LINKEDIN_USER}` },
