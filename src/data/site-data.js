@@ -64,7 +64,7 @@ export const projects = {
     contributors: [
       { name: "Mike", url: `https://${import.meta.env.VITE_LINKEDIN_USER}` },
       { name: "Mahtab", url: `https://${import.meta.env.VITE_LINKEDIN_MSZ}` },
-      { name: "Michelle", url: `https://${import.meta.env.VITE_LINKEDIN_MG}` },
+      { name: "Michelle", url: `https://${import.meta.env.VITE_LINKEDIN_MN}` },
     ],
     cards: [
       {
