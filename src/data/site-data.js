@@ -188,7 +188,7 @@ export const projects = {
   portfolio: {
     heroImg: [twilight],
     title: "Portfolio",
-    caption: "A collaborative React movie database built for film lovers.",
+    caption: "Built to highlight state management, error states, and user roles.",
     stackIcon: [
       { src: htmlIcon, alt: "Hypertext Markup Language" },
       { src: cssIcon, alt: "Cascading Style Sheets" },
