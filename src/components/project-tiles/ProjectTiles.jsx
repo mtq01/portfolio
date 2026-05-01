@@ -8,6 +8,7 @@ function ProjectTiles({ projects, active, setActive }) {
     <div className="project-tile-container">
       {Object.keys(projects).map((key) => (
         <p
+        tabIndex="0"
           key={key}
           className={`project-tile ${active === key ? "active" : ""}`}
           onClick={() => setActive(key)}

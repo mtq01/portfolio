@@ -6,7 +6,7 @@ function SystemMonitor({ isSystemHealthy, toggleSystemHealth }) {
       <div className="aside-header-group">
         <h2 className="aside-title">Activity Log</h2>
 
-        <div
+        <button
           onClick={toggleSystemHealth}
           className={`system-monitor-toggle ${isSystemHealthy ? "live" : "offline"}`}
         >
@@ -21,7 +21,7 @@ function SystemMonitor({ isSystemHealthy, toggleSystemHealth }) {
           <span className="system-monitor-status">
             {isSystemHealthy ? "LIVE" : "OFFLINE"}
           </span>
-        </div>
+        </button>
       </div>
       <ActivityLogUI />
     </aside>
