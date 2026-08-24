@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { LOG_TYPES } from "../../constants";
 import { appTitle } from "../../globals/globals.js";
 import ProjectCard from "../project-card/ProjectCard";
 import SystemMonitor from "../aside/SystemMonitor";
 import Popup from "../popup/Popup";
+
+const DESKTOP_QUERY = "(min-width: 50rem)";
 
 // shared shell for Home & About: both page over a data set (projects or
 // strengths) as a scrollable grid, with the selected item's details
@@ -16,8 +19,9 @@ import Popup from "../popup/Popup";
 function DataPage({ data, indexPath, detailPath, pageLabel, heading }) {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } =
+  const { isSystemHealthy, addLog, toggleSystemHealth, userRole } =
     useActivityLog();
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const openItem = id ? data[id] : null;
 
   // dynamic page title
@@ -39,20 +43,6 @@ function DataPage({ data, indexPath, detailPath, pageLabel, heading }) {
 
   const handleClose = () => navigate(indexPath);
 
-  // system health toggle (simulated)
-  const toggleSystemHealth = () => {
-    if (isSystemHealthy) {
-      setIsSystemHealthy(false);
-      addLog("CRITICAL: API Connect Lost (Simulated)", LOG_TYPES.ERROR);
-    } else {
-      setIsSystemHealthy(true);
-      addLog(
-        "System: Connection Restored. Re-syncing data...",
-        LOG_TYPES.SUCCESS,
-      );
-    }
-  };
-
   return (
     <>
       {/* Project/Strength grid */}
@@ -63,11 +53,16 @@ function DataPage({ data, indexPath, detailPath, pageLabel, heading }) {
         heading={heading}
       />
 
-      {/* Aside: Activity Log */}
-      <SystemMonitor
-        isSystemHealthy={isSystemHealthy}
-        toggleSystemHealth={toggleSystemHealth}
-      />
+      {/* Aside: Activity Log - only rendered here below the desktop
+          breakpoint; above it, Nav.jsx renders it in the sidebar instead.
+          Exactly one instance is ever mounted, since SystemMonitor runs
+          live timers that shouldn't double-fire. */}
+      {!isDesktop && (
+        <SystemMonitor
+          isSystemHealthy={isSystemHealthy}
+          toggleSystemHealth={toggleSystemHealth}
+        />
+      )}
 
       {/* Popup: full details for the item matching the URL, if any */}
       <Popup project={openItem} userRole={userRole} onClose={handleClose} />

@@ -192,21 +192,24 @@
 
 /* ----- end [ACTIVITY LOG] styles (mobile) ----- */
 
-/* ----- [DESKTOP] styles ----- */
+/* ----- [DESKTOP] styles -----
+   above 50rem, the activity log is always embedded in the narrow
+   (12rem) nav sidebar rather than the wide main-content aside, so this
+   is sized to fit there rather than growing with viewport width */
 @media (min-width: 50rem) {
 
-  .log-scroll {
-    min-height: 15.625rem;
-    height: 21rem;
+  .nav-activity-log {
+    font-size: 0.75rem;
   }
 
-
-}
-
-@media (min-width: 80rem) {
   .log-scroll {
-    height: 28rem;
+    min-height: 8rem;
+    height: 10rem;
   }
 
+  .api-status-bar {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
 
 }

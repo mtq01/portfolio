@@ -6,6 +6,53 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Moved the activity log into the nav sidebar (desktop only)
+
+**Change:** The activity log (`SystemMonitor`/`ActivityLogUI`) now renders
+inside `Nav.jsx`'s sidebar, between the nav links and the Controls
+section, at desktop widths (≥50rem, where `.site-nav` is a real 12rem
+vertical sidebar per `App.css`'s `.base-grid`). Below that breakpoint,
+where `.site-nav` is a horizontal bottom bar with no room to stack
+anything, it stays exactly where it was — rendered in the main content
+area by `DataPage.jsx`, unchanged.
+
+**Why not just render it in both places and hide one with CSS**:
+`ActivityLogUI` runs live timers (`setTimeout`/`setInterval` in a
+`useEffect`) that call `addLog` as a side effect — including on mount
+("Activity Log Module Linked Successfully"). `display: none` doesn't
+pause React effects, so two simultaneously-mounted instances (one visible,
+one hidden) would both run their timers independently and duplicate every
+simulated log entry. Instead, exactly one instance is ever mounted:
+`DataPage.jsx` and `Nav.jsx` each check a new `useMediaQuery` hook
+(`src/hooks/useMediaQuery.js`, wraps `window.matchMedia` with a resize
+listener) and only one of them renders `<SystemMonitor>` at a time —
+`Nav.jsx` when desktop, `DataPage.jsx` when not. Crossing the breakpoint
+cleanly unmounts one and mounts the other (React runs the outgoing
+instance's effect cleanup), so no duplicate timers persist either way.
+
+**`toggleSystemHealth` moved into `ActivityLogContext.jsx`**: it was
+previously defined identically inside every `DataPage` instance (page
+logic that wasn't actually page-specific). Since `Nav.jsx` now also needs
+it, it made more sense to expose it directly from the context alongside
+`isSystemHealthy`, removing the duplication rather than passing it down
+another way. Kept as a plain `if (isSystemHealthy) {...} else {...}`
+reading state from closure, not a functional `setState` updater with
+`addLog` inside it — this app renders in `<StrictMode>`, which
+intentionally double-invokes updater functions in dev to catch impure
+ones, and `addLog` is a real side effect that would have logged twice.
+
+**CSS**: `activity-log.css`'s desktop rules previously sized `.log-scroll`
+for the old wide (`grid-column: 9/13`) main-content aside, growing taller
+at an 80rem breakpoint. Since desktop now always means "narrow 12rem
+sidebar," replaced that with a single, shorter desktop size (`10rem` log
+height) and stacked `.api-status-bar`'s two status items vertically
+instead of side-by-side, since the sidebar isn't wide enough for both
+with their text labels. Exact sizing may need a visual pass — flagged in
+the PR, since no browser tooling was available to check the rendered
+result this session.
+
+---
+
 ## 2026-08-23 — Replaced the pill-nav + single-hero layout with a project grid
 
 **Change:** Home and About previously showed one project/strength at a

@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { LOG_TYPES } from "../../constants";
 import { NavLink } from "react-router-dom";
 import ContactDrawer from "../../components/contact-drawer/ContactDrawer";
+import SystemMonitor from "../aside/SystemMonitor";
 import "./nav.css";
 
 const palette = {
@@ -10,9 +12,13 @@ const palette = {
   lightMode: "Light",
 };
 
+const DESKTOP_QUERY = "(min-width: 50rem)";
+
 function Nav() {
   const [lightToggle, setLightToggle] = useState("darkMode");
-  const { addLog, isSystemHealthy, userRole, setUserRole } = useActivityLog();
+  const { addLog, isSystemHealthy, toggleSystemHealth, userRole, setUserRole } =
+    useActivityLog();
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const contactRef = useRef(null);
 
@@ -114,6 +120,19 @@ function Nav() {
           />
         </li>
       </ul>
+
+      {/* Activity Log: only rendered here at desktop widths, where the
+          nav is a real sidebar with room for it - below that breakpoint
+          DataPage.jsx renders it in its original spot instead. Exactly
+          one instance is ever mounted (it runs live timers). */}
+      {isDesktop && (
+        <div className="nav-activity-log-wrapper">
+          <SystemMonitor
+            isSystemHealthy={isSystemHealthy}
+            toggleSystemHealth={toggleSystemHealth}
+          />
+        </div>
+      )}
 
       <div className="nav-controls">
         <div className="nav-link-container">

@@ -82,6 +82,14 @@
 }
 
 
+/* activity log, embedded in the sidebar at desktop widths only
+   (nav-activity-log-wrapper is never rendered below 50rem) */
+.nav-activity-log-wrapper {
+    width: 100%;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+}
+
 /* nav controls */
 .nav-controls {
     display: flex;

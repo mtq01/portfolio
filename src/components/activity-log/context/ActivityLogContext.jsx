@@ -39,6 +39,24 @@ export const ActivityLogProvider = ({ children }) => {
     setLogs((prevLogs) => [newLog, ...prevLogs].slice(0, 15));
   }, []);
 
+  // system health toggle (simulated) - lives here rather than per-page
+  // since it's just a context-state helper, not page-specific logic.
+  // reads isSystemHealthy from closure (not a functional setState updater)
+  // since addLog is a side effect - StrictMode double-invokes updater
+  // functions in dev, which would double-log if addLog lived in one
+  const toggleSystemHealth = useCallback(() => {
+    if (isSystemHealthy) {
+      setIsSystemHealthy(false);
+      addLog("CRITICAL: API Connect Lost (Simulated)", LOG_TYPES.ERROR);
+    } else {
+      setIsSystemHealthy(true);
+      addLog(
+        "System: Connection Restored. Re-syncing data...",
+        LOG_TYPES.SUCCESS,
+      );
+    }
+  }, [isSystemHealthy, addLog]);
+
   return (
     <ActivityLogContext.Provider
       value={{
@@ -46,6 +64,7 @@ export const ActivityLogProvider = ({ children }) => {
         addLog,
         isSystemHealthy,
         setIsSystemHealthy,
+        toggleSystemHealth,
         userRole,
         setUserRole,
       }}
