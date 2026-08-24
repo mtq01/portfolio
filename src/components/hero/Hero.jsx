@@ -45,6 +45,7 @@ function Hero({ project }) {
                 className="project-links"
                 href={projectLinks[0].url}
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   className="project-links-icon"
@@ -57,6 +58,7 @@ function Hero({ project }) {
                 className="project-links"
                 href={projectLinks[1].url}
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   className="project-links-icon"
