@@ -6,6 +6,35 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Merged Home and About into a shared DataPage component
+
+**Change:** `Home.jsx` and `About.jsx` were near-identical: same state shape
+(`active`, `activeCard`), same `toggleSystemHealth`, same two `useEffect`s,
+same JSX tree (`ProjectTiles` → `Hero` → `SystemMonitor` → `ProjectCard` →
+`Popup`) — differing only in which data object they read (`projects` vs.
+`strengths`), the default active key, and the page title. Extracted the
+shared logic into `src/components/pages/DataPage.jsx`, which takes `data`,
+`defaultActiveKey`, and `pageLabel` props. `Home.jsx` and `About.jsx` are
+now ~6-line wrappers that just supply those props.
+
+While merging, the two pages' logging `useEffect`s turned out to reference
+different fields — `Home` used `current.contributors.length`, `About` used
+`current.cards.length` — because `strengths` entries in `site-data.js` have
+no `contributors` field at all (confirmed by grepping `site-data.js`); using
+`contributors.length` there would throw. Standardized on `current.cards.length`
+since `cards` exists on every entry in both `projects` and `strengths`. This
+also happened to satisfy the pre-existing `react-hooks/exhaustive-deps`
+ESLint warnings on both files (missing `current.title`/length in the
+dependency array), which weren't part of this change's goal but fall out of
+it naturally once there's one effect instead of two near-duplicates.
+
+**Why:** Two components that must be kept in sync by hand (e.g. the typo
+fix earlier in this log had to be applied to both `Home.jsx` and `About.jsx`
+separately) are a maintenance liability — it's easy to fix a bug in one and
+forget the other. A single parameterized component removes that risk.
+
+---
+
 ## 2026-08-23 — Trimmed tutorial-style comments in .htaccess
 
 **Change:** `public/.htaccess` had a line-by-line comment explaining what
