@@ -6,6 +6,22 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Fixed eslint.config.js to ignore the real build output dir
+
+**Change:** `eslint.config.js` had `globalIgnores(['dist'])`, but
+`vite.config.js` sets `build.outDir: 'emburr'` — Vite's default is `dist`,
+but this project overrides it. Changed the ignore to `globalIgnores(['emburr'])`.
+
+**Why:** With the wrong ignore in place, a plain `npm run lint` runs ESLint
+over the minified production bundle in `emburr/assets/*.js` and fails with
+thousands of parser/rule errors that have nothing to do with the actual
+source — found while re-verifying `npm run lint` during this PR series
+(every fix in this series was instead verified with `npx eslint <file>` on
+just the changed files, to route around this). This restores `npm run lint`
+as a usable command.
+
+---
+
 ## 2026-08-23 — Fixed trailing space in the nav logo's alt text
 
 **Change:** `Nav.jsx`'s logo `<img alt="emburr by Mike ">` had a trailing
