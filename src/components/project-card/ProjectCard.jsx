@@ -44,7 +44,7 @@ function ProjectCard({ cards, setActiveCard, isSystemHealthy, userRole }) {
               // if guest > error logged > popup opens with guest content (see Popup.jsx)
               if (userRole !== ROLES.ADMIN) {
                 addLog(
-                  "Denied: Admin privelages required to view solutions.",
+                  "Denied: Admin privileges required to view solutions.",
                   LOG_TYPES.ERROR,
                 );
                 setActiveCard({ ...card, isLocked: true });

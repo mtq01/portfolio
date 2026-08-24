@@ -6,6 +6,26 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Fixed typos in the activity log
+
+**Change:** Fixed three typos in strings that render live in the on-screen
+Activity Log (`ActivityLogUI.jsx` displays every `addLog` message directly
+to visitors, so these aren't just code-comment typos):
+- `ActivityLogContext.jsx`: `"Mikes Portfolio v2.0"` → `"Mike's Portfolio v2.0"`
+- `Home.jsx` and `About.jsx`: `"API Conntect Lost"` → `"API Connect Lost"`
+  (duplicated identically in both files)
+- `ProjectCard.jsx`: `"Admin privelages required"` → `"Admin privileges required"`
+
+Also fixed a stale code comment in `ActivityLogContext.jsx` referencing a
+`'deveolper'` role — the actual role values (`constants.js`'s `ROLES`) are
+`guest`/`admin`, so the comment was both misspelled and out of date.
+
+**Why:** These strings are visible to any visitor who opens the Activity Log
+panel, which is on-screen by default on both pages — they read as
+carelessness on a portfolio site meant to demonstrate attention to detail.
+
+---
+
 ## 2026-08-23 — Added rel="noreferrer" to Hero's target="_blank" links
 
 **Change:** In `src/components/hero/Hero.jsx`, the Repo and Live project
