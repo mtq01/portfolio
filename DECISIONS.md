@@ -6,6 +6,17 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Made the footer copyright year dynamic
+
+**Change:** `MainLayout.jsx`'s footer had a hardcoded `©Copyright 2026`.
+Changed to `©Copyright {new Date().getFullYear()}`.
+
+**Why:** A literal year silently goes stale the moment the calendar rolls
+over, and it's the kind of small detail visitors do notice on a portfolio
+site meant to show attention to detail.
+
+---
+
 ## 2026-08-23 — Merged Home and About into a shared DataPage component
 
 **Change:** `Home.jsx` and `About.jsx` were near-identical: same state shape

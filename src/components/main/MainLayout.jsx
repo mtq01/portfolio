@@ -20,7 +20,7 @@ function MainLayout() {
           {/* home, about, contact appear here based on the url in browser */}
           <Outlet />
           
-          <footer className="grid-footer">©Copyright 2026</footer>
+          <footer className="grid-footer">©Copyright {new Date().getFullYear()}</footer>
         </div>
       </main>
     </div>
