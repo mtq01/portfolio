@@ -6,6 +6,21 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Set real name/short_name in site.webmanifest
+
+**Change:** `public/site.webmanifest` had `"name": "MyWebSite"` and
+`"short_name": "MySite"` — the default placeholder values from whatever
+favicon/PWA generator produced the icon set. Changed to
+`"EMBURR | Mike's Portfolio"` / `"EMBURR"`, matching the app's actual title
+(`appTitle` in `globals.js`, and `<title>EMBURR</title>` in `index.html`).
+
+**Why:** These values are what shows up if someone adds the site to their
+home screen (PWA install) or in browser/Lighthouse PWA audits — leaving the
+generator's defaults in place would put "MySite" on a visitor's home
+screen. Never customized after the favicon set was generated.
+
+---
+
 ## 2026-08-23 — Fixed typos in the activity log
 
 **Change:** Fixed three typos in strings that render live in the on-screen
