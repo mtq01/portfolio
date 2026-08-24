@@ -6,6 +6,17 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Removed dead commented-out code in Header
+
+**Change:** Removed a leftover commented-out
+`<span className="system-path">DASHBOARD / </span>` in `Header.jsx`.
+
+**Why:** Version control already keeps the history of code that used to be
+there — a dead, commented-out element sitting in the source doesn't need to
+also do that job, and just reads as an unfinished edit.
+
+---
+
 ## 2026-08-23 — Made the footer copyright year dynamic
 
 **Change:** `MainLayout.jsx`'s footer had a hardcoded `©Copyright 2026`.
