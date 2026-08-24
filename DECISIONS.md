@@ -6,6 +6,23 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Added rel="noreferrer" to Hero's target="_blank" links
+
+**Change:** In `src/components/hero/Hero.jsx`, the Repo and Live project
+links (`projectLinks[0]`/`projectLinks[1]`) now set `rel="noreferrer"`
+alongside their existing `target="_blank"`.
+
+**Why:** A link with `target="_blank"` and no `rel="noopener"`/`noreferrer"`
+lets the page it opens access `window.opener` and redirect the original tab
+(reverse tabnabbing) — a real, if minor, security gap. Every other
+`target="_blank"` link in this codebase (Hero's contributor links,
+`ContactDrawer.jsx`) already sets `rel="noreferrer"`; these two were just
+missed. Used `noreferrer` alone (not `noreferrer noopener`) to match that
+existing convention — `noreferrer` alone already implies `noopener` in all
+current browsers.
+
+---
+
 ## 2026-08-23 — Made ProjectCard keyboard-reachable and removed the dead nested button
 
 **Change:** In `src/components/project-card/ProjectCard.jsx`, the outer
