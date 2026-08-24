@@ -6,6 +6,24 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Trimmed tutorial-style comments in .htaccess
+
+**Change:** `public/.htaccess` had a line-by-line comment explaining what
+each individual directive does (`# We disable MultiViews`, `# Then we turn
+on the RewriteEngine, allowing us to modify URLs based on certain
+conditions`, etc.). Replaced with a single comment explaining *why* the
+rule exists (SPA fallback routing for React Router), removed the rest.
+
+**Why:** The directives themselves are standard, well-documented Apache
+config — a reader can look up `RewriteEngine` or `QSA`/`L` flags in five
+seconds if needed. Explaining what each line does inline reads as
+copied-from-a-tutorial rather than understood, which isn't the impression
+a portfolio's own deploy config should give. The reason the rule exists at
+all (SPA client-side routing) is the part worth keeping, since that's not
+obvious from the directives alone.
+
+---
+
 ## 2026-08-23 — Added meta description and Open Graph/Twitter tags
 
 **Change:** `index.html` had no `<meta name="description">` and no social
