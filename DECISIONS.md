@@ -6,6 +6,135 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Made the footer copyright year dynamic
+
+**Change:** `MainLayout.jsx`'s footer had a hardcoded `©Copyright 2026`.
+Changed to `©Copyright {new Date().getFullYear()}`.
+
+**Why:** A literal year silently goes stale the moment the calendar rolls
+over, and it's the kind of small detail visitors do notice on a portfolio
+site meant to show attention to detail.
+
+---
+
+## 2026-08-23 — Merged Home and About into a shared DataPage component
+
+**Change:** `Home.jsx` and `About.jsx` were near-identical: same state shape
+(`active`, `activeCard`), same `toggleSystemHealth`, same two `useEffect`s,
+same JSX tree (`ProjectTiles` → `Hero` → `SystemMonitor` → `ProjectCard` →
+`Popup`) — differing only in which data object they read (`projects` vs.
+`strengths`), the default active key, and the page title. Extracted the
+shared logic into `src/components/pages/DataPage.jsx`, which takes `data`,
+`defaultActiveKey`, and `pageLabel` props. `Home.jsx` and `About.jsx` are
+now ~6-line wrappers that just supply those props.
+
+While merging, the two pages' logging `useEffect`s turned out to reference
+different fields — `Home` used `current.contributors.length`, `About` used
+`current.cards.length` — because `strengths` entries in `site-data.js` have
+no `contributors` field at all (confirmed by grepping `site-data.js`); using
+`contributors.length` there would throw. Standardized on `current.cards.length`
+since `cards` exists on every entry in both `projects` and `strengths`. This
+also happened to satisfy the pre-existing `react-hooks/exhaustive-deps`
+ESLint warnings on both files (missing `current.title`/length in the
+dependency array), which weren't part of this change's goal but fall out of
+it naturally once there's one effect instead of two near-duplicates.
+
+**Why:** Two components that must be kept in sync by hand (e.g. the typo
+fix earlier in this log had to be applied to both `Home.jsx` and `About.jsx`
+separately) are a maintenance liability — it's easy to fix a bug in one and
+forget the other. A single parameterized component removes that risk.
+
+---
+
+## 2026-08-23 — Trimmed tutorial-style comments in .htaccess
+
+**Change:** `public/.htaccess` had a line-by-line comment explaining what
+each individual directive does (`# We disable MultiViews`, `# Then we turn
+on the RewriteEngine, allowing us to modify URLs based on certain
+conditions`, etc.). Replaced with a single comment explaining *why* the
+rule exists (SPA fallback routing for React Router), removed the rest.
+
+**Why:** The directives themselves are standard, well-documented Apache
+config — a reader can look up `RewriteEngine` or `QSA`/`L` flags in five
+seconds if needed. Explaining what each line does inline reads as
+copied-from-a-tutorial rather than understood, which isn't the impression
+a portfolio's own deploy config should give. The reason the rule exists at
+all (SPA client-side routing) is the part worth keeping, since that's not
+obvious from the directives alone.
+
+---
+
+## 2026-08-23 — Added meta description and Open Graph/Twitter tags
+
+**Change:** `index.html` had no `<meta name="description">` and no social
+share tags at all. Added a description, Open Graph (`og:type`, `og:title`,
+`og:description`, `og:image`, `og:url`), and Twitter card tags. Used
+`https://www.emburr.com` as the canonical URL/image host — that's the live
+URL already referenced in `site-data.js` for this same site's own project
+entry, so it's the best available source of truth for the real domain
+rather than a guess. `og:image` points at the existing `emburr-logo.png` in
+`public/`.
+
+**Why:** Without these tags, sharing a link to the site (Slack, LinkedIn,
+Twitter, iMessage, etc. — exactly the channels a portfolio link travels
+through) produces a bare, title-only preview with no description or image.
+For a site meant to be shared with recruiters, that's a real first-impression
+gap.
+
+---
+
+## 2026-08-23 — Wrote a real README
+
+**Change:** Replaced the placeholder `README.md` (its entire contents were
+`## info will go heya`) with an actual project README: what the app is,
+its features, tech stack, setup/scripts, and project structure. Also noted
+that the build output directory is `emburr/`, not Vite's default `dist/`,
+since that's non-obvious and has already caused confusion (`eslint.config.js`
+only ignores `dist`, so `npm run lint` currently trips over the built
+bundle in `emburr/`).
+
+**Why:** The only other README-shaped content in this repo's history is on
+an unmerged branch (`feature/readme`) and is boilerplate for an unrelated
+course assignment ("M3-MOVIE-APP"). A portfolio repo with no real README is
+one of the first things a visiting recruiter or collaborator would notice.
+
+---
+
+## 2026-08-23 — Set real name/short_name in site.webmanifest
+
+**Change:** `public/site.webmanifest` had `"name": "MyWebSite"` and
+`"short_name": "MySite"` — the default placeholder values from whatever
+favicon/PWA generator produced the icon set. Changed to
+`"EMBURR | Mike's Portfolio"` / `"EMBURR"`, matching the app's actual title
+(`appTitle` in `globals.js`, and `<title>EMBURR</title>` in `index.html`).
+
+**Why:** These values are what shows up if someone adds the site to their
+home screen (PWA install) or in browser/Lighthouse PWA audits — leaving the
+generator's defaults in place would put "MySite" on a visitor's home
+screen. Never customized after the favicon set was generated.
+
+---
+
+## 2026-08-23 — Fixed typos in the activity log
+
+**Change:** Fixed three typos in strings that render live in the on-screen
+Activity Log (`ActivityLogUI.jsx` displays every `addLog` message directly
+to visitors, so these aren't just code-comment typos):
+- `ActivityLogContext.jsx`: `"Mikes Portfolio v2.0"` → `"Mike's Portfolio v2.0"`
+- `Home.jsx` and `About.jsx`: `"API Conntect Lost"` → `"API Connect Lost"`
+  (duplicated identically in both files)
+- `ProjectCard.jsx`: `"Admin privelages required"` → `"Admin privileges required"`
+
+Also fixed a stale code comment in `ActivityLogContext.jsx` referencing a
+`'deveolper'` role — the actual role values (`constants.js`'s `ROLES`) are
+`guest`/`admin`, so the comment was both misspelled and out of date.
+
+**Why:** These strings are visible to any visitor who opens the Activity Log
+panel, which is on-screen by default on both pages — they read as
+carelessness on a portfolio site meant to demonstrate attention to detail.
+
+---
+
 ## 2026-08-23 — Added rel="noreferrer" to Hero's target="_blank" links
 
 **Change:** In `src/components/hero/Hero.jsx`, the Repo and Live project
