@@ -1,35 +1,43 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useActivityLog } from "../activity-log/context/ActivityLogContext";
 import { LOG_TYPES } from "../../constants";
 import { appTitle } from "../../globals/globals.js";
-import ProjectTiles from "../project-tiles/ProjectTiles";
-import Hero from "../hero/Hero";
-import SystemMonitor from "../aside/SystemMonitor";
 import ProjectCard from "../project-card/ProjectCard";
+import SystemMonitor from "../aside/SystemMonitor";
 import Popup from "../popup/Popup";
 
 // shared shell for Home & About: both page over a data set (projects or
-// strengths) using the same tiles/hero/log/card/popup layout
-function DataPage({ data, defaultActiveKey, pageLabel }) {
-  const [active, setActive] = useState(defaultActiveKey);
-  const [activeCard, setActiveCard] = useState(null);
+// strengths) as a scrollable grid, with the selected item's details
+// synced to the URL (detailPath/:id) and shown in a popup. indexPath is
+// where the grid itself lives (e.g. "/" for Home) - not necessarily the
+// same as detailPath (e.g. "/project"), which is only ever valid with an
+// :id appended
+function DataPage({ data, indexPath, detailPath, pageLabel, heading }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } =
     useActivityLog();
-  const current = data[active];
+  const openItem = id ? data[id] : null;
 
   // dynamic page title
   useEffect(() => {
     document.title = `${pageLabel} | ${appTitle}`;
   }, [pageLabel]);
 
-  // log: project tabs
-  useEffect(() => {
-    addLog(`Database: Initializing ${current.title} Module...`, LOG_TYPES.INFO);
-    addLog(
-      `Success: Loaded ${current.cards.length} documentation nodes for ${current.title}`,
-      LOG_TYPES.SUCCESS,
-    );
-  }, [active, addLog, current.cards.length, current.title]); // runs each time the active tile changes
+  const handleSelect = (key) => {
+    if (!isSystemHealthy) {
+      addLog(
+        "Warning: Cannot view project details while system is OFFLINE",
+        LOG_TYPES.ERROR,
+      );
+      return;
+    }
+    addLog(`Success: Opened details for "${data[key].title}"`, LOG_TYPES.INFO);
+    navigate(`${detailPath}/${key}`);
+  };
+
+  const handleClose = () => navigate(indexPath);
 
   // system health toggle (simulated)
   const toggleSystemHealth = () => {
@@ -47,11 +55,13 @@ function DataPage({ data, defaultActiveKey, pageLabel }) {
 
   return (
     <>
-      {/* Tiles: Navigation */}
-      <ProjectTiles projects={data} active={active} setActive={setActive} />
-
-      {/* Hero Card */}
-      <Hero project={current} />
+      {/* Project/Strength grid */}
+      <ProjectCard
+        items={data}
+        onSelect={handleSelect}
+        isSystemHealthy={isSystemHealthy}
+        heading={heading}
+      />
 
       {/* Aside: Activity Log */}
       <SystemMonitor
@@ -59,22 +69,8 @@ function DataPage({ data, defaultActiveKey, pageLabel }) {
         toggleSystemHealth={toggleSystemHealth}
       />
 
-      {/* Cards */}
-      <ProjectCard
-        cards={current.cards}
-        setActiveCard={setActiveCard}
-        isSystemHealthy={isSystemHealthy}
-        userRole={userRole}
-      />
-
-      {/* Popup */}
-      <Popup
-        isOpen={activeCard !== null}
-        isLocked={activeCard?.isLocked}
-        title={activeCard?.title}
-        description={activeCard?.description}
-        onClose={() => setActiveCard(null)}
-      />
+      {/* Popup: full details for the item matching the URL, if any */}
+      <Popup project={openItem} userRole={userRole} onClose={handleClose} />
     </>
   );
 }

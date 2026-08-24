@@ -6,6 +6,78 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Replaced the pill-nav + single-hero layout with a project grid
+
+**Change:** Home and About previously showed one project/strength at a
+time, picked via a row of pill "tiles" (`ProjectTiles.jsx`): the page
+displayed that one item's big `Hero` banner, plus its 3 detail sub-cards
+(each opening its own popup). Replaced this with: every project/strength
+rendered as one card in a scrollable grid (`ProjectCard.jsx`, repurposed —
+previously it rendered the 3 sub-cards *within* one project, now it
+renders the top-level grid), and clicking a card opens the existing
+`Popup`, now showing that item's full details — a `Hero` header (reused
+as-is, image/title/caption/stack/links/contributors) plus its 3 sub-cards'
+write-ups folded in as sections, instead of each sub-card getting its own
+separate clickable tile/popup. The open item is synced to the URL
+(`/project/:id`, `/about/:id` — new routes in `App.jsx`) so it's
+bookmarkable/shareable, without needing a full dedicated page per project.
+`ProjectTiles.jsx` is now unused and was deleted, along with its CSS.
+`DataPage.jsx` (the shared Home/About shell) dropped its tile-switching
+state entirely in favor of reading the open id from `useParams()`, and
+takes two separate path props: `indexPath` (where the grid itself lives —
+`/` for Home) and `detailPath` (the prefix for item URLs — `/project`,
+which is only ever valid with an `:id` appended, since only `/project/:id`
+is a registered route, not bare `/project`). These aren't always the same
+path — About's grid happens to live at `/about`, the same as its detail
+prefix, but Home's doesn't (`/` vs `/project`). An earlier version of this
+used one `basePath` prop for both, which happened to work for About but
+sent Home's popup-close action to the unrouted `/project` (blank page) —
+caught via manual testing, not something the build/lint/route-smoke-test
+verification here had covered.
+
+**Behavior change, called out explicitly**: previously a Guest clicking a
+sub-card saw *nothing* but a generic "Switch to Admin Mode" notice — the
+project's basic info (image, caption, stack, links) was never guest-gated
+because it lived in the separate, always-visible `Hero` banner. Now that
+the header and the technical write-up are one popup, Guests see the full
+header (still ungated) with only the folded write-up sections replaced by
+the locked notice. This is a deliberate product decision, not an
+oversight: a Guest/recruiter browsing the grid should be able to see what
+each project actually is without needing to find and flip the Admin
+toggle first.
+
+**CSS**: `.hero`'s absolute-positioned children (`.hero-img`,
+`.hero-content`) previously only had their fill/cover rules inside a
+desktop-only media query — harmless before, since the page-level Hero
+only really needed to look right on both sizes independently, but now
+that `Hero` renders *inside the popup* at any viewport width, those rules
+were made unconditional. `.hero` itself no longer participates in
+`.main-container`'s CSS Grid (it's not a grid item once it's popup-only),
+so it's just `height: 100%` filling a new `.popup-hero` wrapper
+(`mainlayout.css`) that gives it a fixed height instead. `.card-container`
+switched from a fixed 12-column grid with exactly 3 hardcoded slots
+(`.card-one`/`.card-two`/`.card-three`) to `grid-template-columns:
+repeat(auto-fill, minmax(16rem, 1fr))` with one shared `.project-grid-card`
+class, so it scales to any number of projects rather than assuming
+exactly 3. `.card-container` also expanded into the vertical space the
+Hero banner used to occupy on desktop (`grid-row: 2 / 14`), while
+`.aside-container` (the activity log) keeps its exact current position —
+the user asked to leave it alone for now; it'll move in a later change.
+Also dropped a few pre-existing, already-unused CSS rules
+(`.contributors-container`, `.card-contributors`, `.card-text`) found
+while rewriting `project-card.css` — confirmed unused via grep before
+removing.
+
+**Why:** The pill-nav + single-hero layout only ever showed one project at
+a time and required an extra click to switch — restrictive for a
+portfolio where the whole point is to make projects easy to browse. A
+grid of everything, expandable in place, is both simpler to scan and
+scales naturally as more projects get added (the old layout was hardcoded
+for exactly 3 sub-cards per project; nothing about the grid assumes a
+fixed count).
+
+---
+
 ## 2026-08-23 — Fixed eslint.config.js to ignore the real build output dir
 
 **Change:** `eslint.config.js` had `globalIgnores(['dist'])`, but
