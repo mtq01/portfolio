@@ -96,6 +96,16 @@
     display: none;
 }
 
+.nav-toggle-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    cursor: pointer;
+}
+
 .role-display {
     display: inline-flex;
     align-items: center;

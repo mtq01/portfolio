@@ -7,14 +7,15 @@ function ProjectTiles({ projects, active, setActive }) {
   return (
     <div className="project-tile-container">
       {Object.keys(projects).map((key) => (
-        <p
-        tabIndex="0"
+        <button
+          type="button"
           key={key}
           className={`project-tile ${active === key ? "active" : ""}`}
           onClick={() => setActive(key)}
+          aria-pressed={active === key}
         >
           {projects[key].title}
-        </p>
+        </button>
       ))}
     </div>
   );
