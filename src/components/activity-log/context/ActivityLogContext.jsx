@@ -7,7 +7,7 @@ export const ActivityLogProvider = ({ children }) => {
   const [logs, setLogs] = useState([
     {
       id: "init-1",
-      msg: "SYSTEM_BOOT: Mikes Portfolio v2.0",
+      msg: "SYSTEM_BOOT: Mike's Portfolio v2.0",
       type: LOG_TYPES.INFO,
       time: new Date(),
     },
@@ -20,7 +20,7 @@ export const ActivityLogProvider = ({ children }) => {
   ]);
 
   const [isSystemHealthy, setIsSystemHealthy] = useState(true);
-  // user roles 'guest' or 'deveolper'
+  // user roles 'guest' or 'admin'
   const [userRole, setUserRole] = useState("guest");
 
   const addLog = useCallback((message, type = LOG_TYPES.INFO) => {

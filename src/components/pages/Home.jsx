@@ -35,7 +35,7 @@ function Home() {
   const toggleSystemHealth = () => {
     if (isSystemHealthy) {
       setIsSystemHealthy(false);
-      addLog("CRITICAL: API Conntect Lost (Simulated)", LOG_TYPES.ERROR);
+      addLog("CRITICAL: API Connect Lost (Simulated)", LOG_TYPES.ERROR);
     } else {
       setIsSystemHealthy(true);
       addLog(
