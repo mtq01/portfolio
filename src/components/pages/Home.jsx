@@ -5,7 +5,8 @@ function Home() {
   return (
     <DataPage
       data={projects}
-      basePath="/project"
+      indexPath="/"
+      detailPath="/project"
       pageLabel="Home"
       heading="Projects"
     />

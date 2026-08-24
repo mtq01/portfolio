@@ -5,7 +5,8 @@ function About() {
   return (
     <DataPage
       data={strengths}
-      basePath="/about"
+      indexPath="/about"
+      detailPath="/about"
       pageLabel="About"
       heading="Strengths"
     />

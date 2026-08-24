@@ -23,7 +23,17 @@ separate clickable tile/popup. The open item is synced to the URL
 bookmarkable/shareable, without needing a full dedicated page per project.
 `ProjectTiles.jsx` is now unused and was deleted, along with its CSS.
 `DataPage.jsx` (the shared Home/About shell) dropped its tile-switching
-state entirely in favor of reading the open id from `useParams()`.
+state entirely in favor of reading the open id from `useParams()`, and
+takes two separate path props: `indexPath` (where the grid itself lives —
+`/` for Home) and `detailPath` (the prefix for item URLs — `/project`,
+which is only ever valid with an `:id` appended, since only `/project/:id`
+is a registered route, not bare `/project`). These aren't always the same
+path — About's grid happens to live at `/about`, the same as its detail
+prefix, but Home's doesn't (`/` vs `/project`). An earlier version of this
+used one `basePath` prop for both, which happened to work for About but
+sent Home's popup-close action to the unrouted `/project` (blank page) —
+caught via manual testing, not something the build/lint/route-smoke-test
+verification here had covered.
 
 **Behavior change, called out explicitly**: previously a Guest clicking a
 sub-card saw *nothing* but a generic "Switch to Admin Mode" notice — the

@@ -9,8 +9,11 @@ import Popup from "../popup/Popup";
 
 // shared shell for Home & About: both page over a data set (projects or
 // strengths) as a scrollable grid, with the selected item's details
-// synced to the URL (basePath/:id) and shown in a popup
-function DataPage({ data, basePath, pageLabel, heading }) {
+// synced to the URL (detailPath/:id) and shown in a popup. indexPath is
+// where the grid itself lives (e.g. "/" for Home) - not necessarily the
+// same as detailPath (e.g. "/project"), which is only ever valid with an
+// :id appended
+function DataPage({ data, indexPath, detailPath, pageLabel, heading }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const { isSystemHealthy, setIsSystemHealthy, addLog, userRole } =
@@ -31,10 +34,10 @@ function DataPage({ data, basePath, pageLabel, heading }) {
       return;
     }
     addLog(`Success: Opened details for "${data[key].title}"`, LOG_TYPES.INFO);
-    navigate(`${basePath}/${key}`);
+    navigate(`${detailPath}/${key}`);
   };
 
-  const handleClose = () => navigate(basePath);
+  const handleClose = () => navigate(indexPath);
 
   // system health toggle (simulated)
   const toggleSystemHealth = () => {
