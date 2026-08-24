@@ -6,6 +6,23 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Wrote a real README
+
+**Change:** Replaced the placeholder `README.md` (its entire contents were
+`## info will go heya`) with an actual project README: what the app is,
+its features, tech stack, setup/scripts, and project structure. Also noted
+that the build output directory is `emburr/`, not Vite's default `dist/`,
+since that's non-obvious and has already caused confusion (`eslint.config.js`
+only ignores `dist`, so `npm run lint` currently trips over the built
+bundle in `emburr/`).
+
+**Why:** The only other README-shaped content in this repo's history is on
+an unmerged branch (`feature/readme`) and is boilerplate for an unrelated
+course assignment ("M3-MOVIE-APP"). A portfolio repo with no real README is
+one of the first things a visiting recruiter or collaborator would notice.
+
+---
+
 ## 2026-08-23 — Set real name/short_name in site.webmanifest
 
 **Change:** `public/site.webmanifest` had `"name": "MyWebSite"` and
