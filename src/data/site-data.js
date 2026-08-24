@@ -136,7 +136,7 @@ export const projects = {
       { src: wooIcon, alt: "WooCommerce" },
     ],
     projectLinks: [
-      { src: githubIcon, alt: "Cloudy Toys GitHub Repo", url: "https://github.com/mtq01/cloudy-toy-theme" },
+      { src: githubIcon, alt: "Cloudy Toys GitHub Repo", url: "https://github.com/mtq01/cloudy-toy-store" },
       { src: liveSiteIcon, alt: "Cloudy Toys Live Site", url: "https://cloudytoy.bcitwebdeveloper.ca/" }
     ],
     contributors: [
