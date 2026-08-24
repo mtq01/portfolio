@@ -54,7 +54,7 @@ function Nav() {
 
   return (
     <nav className="site-nav">
-      <img src="/emburr-logo.png" alt="emburr by Mike " className="site-logo" />
+      <img src="/emburr-logo.png" alt="emburr by Mike" className="site-logo" />
 
       {/* home */}
       <ul className="nav-link-container">

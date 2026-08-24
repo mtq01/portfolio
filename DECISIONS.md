@@ -6,6 +6,18 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Fixed trailing space in the nav logo's alt text
+
+**Change:** `Nav.jsx`'s logo `<img alt="emburr by Mike ">` had a trailing
+space. Removed it.
+
+**Why:** Purely a cleanliness nitpick (most screen readers normalize
+whitespace, so the practical impact is minimal) — noticed while reviewing
+this file for the toggle-button changes earlier in this log, and a
+one-line fix not worth leaving behind.
+
+---
+
 ## 2026-08-23 — Removed dead commented-out code in Header
 
 **Change:** Removed a leftover commented-out
