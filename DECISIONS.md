@@ -6,6 +6,43 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Trimmed tutorial-style comments in .htaccess
+
+**Change:** `public/.htaccess` had a line-by-line comment explaining what
+each individual directive does (`# We disable MultiViews`, `# Then we turn
+on the RewriteEngine, allowing us to modify URLs based on certain
+conditions`, etc.). Replaced with a single comment explaining *why* the
+rule exists (SPA fallback routing for React Router), removed the rest.
+
+**Why:** The directives themselves are standard, well-documented Apache
+config — a reader can look up `RewriteEngine` or `QSA`/`L` flags in five
+seconds if needed. Explaining what each line does inline reads as
+copied-from-a-tutorial rather than understood, which isn't the impression
+a portfolio's own deploy config should give. The reason the rule exists at
+all (SPA client-side routing) is the part worth keeping, since that's not
+obvious from the directives alone.
+
+---
+
+## 2026-08-23 — Added meta description and Open Graph/Twitter tags
+
+**Change:** `index.html` had no `<meta name="description">` and no social
+share tags at all. Added a description, Open Graph (`og:type`, `og:title`,
+`og:description`, `og:image`, `og:url`), and Twitter card tags. Used
+`https://www.emburr.com` as the canonical URL/image host — that's the live
+URL already referenced in `site-data.js` for this same site's own project
+entry, so it's the best available source of truth for the real domain
+rather than a guess. `og:image` points at the existing `emburr-logo.png` in
+`public/`.
+
+**Why:** Without these tags, sharing a link to the site (Slack, LinkedIn,
+Twitter, iMessage, etc. — exactly the channels a portfolio link travels
+through) produces a bare, title-only preview with no description or image.
+For a site meant to be shared with recruiters, that's a real first-impression
+gap.
+
+---
+
 ## 2026-08-23 — Wrote a real README
 
 **Change:** Replaced the placeholder `README.md` (its entire contents were
