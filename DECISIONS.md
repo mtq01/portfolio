@@ -6,6 +6,39 @@ Note: named `DECISIONS.md` (corrected from `DESCISIONS.md`) since this becomes a
 
 ---
 
+## 2026-08-23 — Made ProjectCard keyboard-reachable and removed the dead nested button
+
+**Change:** In `src/components/project-card/ProjectCard.jsx`, the outer
+`<div onClick={...}>` wrapping each project card (the element that opens the
+detail popup) is now a `<button type="button">`. The inner
+`<button className="view-link-btn">{ctaText}</button>` — which had no
+`onClick` of its own and only "worked" because clicks bubbled up to the
+parent — is now a `<span>`, since nesting an interactive element inside
+another interactive element is invalid and was creating a second, non-
+functional keyboard stop. Added `aria-label` (summarizing title + either the
+CTA text, the locked/admin-required state, or the offline state, matching
+the three branches already in the `onClick` handler) so the button has one
+concise accessible name instead of screen readers reading its entire visual
+content — image alt text, heading, description, and CTA — as one block.
+Added `aria-disabled={!isSystemHealthy}` to mirror the existing
+`card-disabled` visual state, and `aria-hidden="true"` on the decorative
+lock/unlock/offline icons so they aren't announced separately from the
+label that already conveys their meaning. `.card-one`/`.card-two`/
+`.card-three` in `project-card.css` got a small reset (`background: none;
+padding: 0; margin: 0; font: inherit; color: inherit; text-align: inherit;`)
+so the buttons render identically to the divs they replaced — the existing
+`border`/`cursor` rules were left as-is since they already matched what a
+button needs.
+
+**Why:** Unlike the Nav/ProjectTiles toggles fixed earlier (focusable but
+not operable), this card had no `tabIndex` at all — it was completely
+unreachable by keyboard, on both the Home and About pages, for what is the
+primary interactive element on each. A `<button>` fixes that natively
+(no manual `onKeyDown` needed) and, being a single element, also resolves
+the double-tab-stop problem the dead nested button was causing.
+
+---
+
 ## 2026-08-23 — Made Nav and ProjectTiles toggles keyboard-activatable
 
 **Change:** In `src/components/nav/Nav.jsx`, the Guest/Admin role toggle and the
