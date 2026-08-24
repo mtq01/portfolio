@@ -17,7 +17,6 @@ const getPathName = () => {
     return (
         <header className="site-header">
             <div className="header-left">
-                {/* <span className="system-path">DASHBOARD / </span> */}
                 <h3 className="page-title">{getPathName()}</h3>
             </div>
 
