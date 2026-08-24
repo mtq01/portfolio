@@ -21,7 +21,9 @@ return (
           <Route element={<MainLayout />}>
             {/* children: render unique child layouts 2nd */}
             <Route path="/" element={<Home />} />
+            <Route path="/project/:id" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/about/:id" element={<About />} />
           </Route>
         </Routes>
       </BrowserRouter>

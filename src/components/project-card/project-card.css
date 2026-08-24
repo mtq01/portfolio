@@ -1,4 +1,4 @@
-/* Project Cards */
+/* Project Grid */
 .card-cta-container {
     display: flex;
     justify-content: space-between;
@@ -6,31 +6,25 @@
     margin-top: 0.625rem;
 }
 
-/* Card Section */
 .card-container {
     grid-column: 1 / 13;
-    grid-row: 6 / 14;
-    /* card sub grid */
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: 1rem;
+    align-content: start;
 }
 
 .card-title {
-    grid-row: 1;
-    grid-column: 1 / 13;
+    grid-column: 1 / -1;
     font-size: 1rem;
     color: var(--text-main);
 }
 
-.card-one,
-.card-two,
-.card-three {
+.project-grid-card {
     position: relative;
     overflow: hidden;
     border: 0.0625rem solid var(--border-subtle);
-    min-height: 16rem;
+    min-height: 14rem;
     cursor: pointer;
     background: none;
     padding: 0;
@@ -40,9 +34,7 @@
     text-align: inherit;
 }
 
-.card-one:not(.card-disabled):hover,
-.card-two:not(.card-disabled):hover,
-.card-three:not(.card-disabled):hover {
+.project-grid-card:not(.card-disabled):hover {
     border: 0.0625rem solid var(--sys-green);
     /* adds lift effect to show its clickable */
     transform: translateY(-2px);
@@ -64,60 +56,31 @@
     bottom: 1rem;
     left: 1rem;
     right: 1rem;
-    z-index: 1;
+    z-index: 2;
     margin: 0;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    z-index: 2;
 }
 
 .card-header {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .card-description {
     line-height: 1.5;
 }
 
-.contributors-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.card-contributors {
-    border: 0.0625rem solid var(--sys-green);
-    padding: 0.75rem 0.25rem;
-}
-
-.card-text {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    z-index: 1;
-    margin: 0;
-}
-
-.card-one,
-.card-two,
-.card-three {
-    grid-column: 1 / 13;
-}
-
 .view-link-btn {
     padding: 0.25rem 0.5rem;
-    border: none;
+    border: 0.0625rem solid transparent;
     border-radius: 0.5rem;
     color: #fff;
     background: transparent;
     cursor: pointer;
     text-decoration: underline;
-    border: 0.0625rem solid transparent;
-
 }
 
 .view-link-btn:hover {
@@ -127,21 +90,8 @@
     text-decoration: none;
 }
 
-/* card access */
-.user-access-granted-icon {
-    fill: var(--sys-green);
-    width: 1.5rem;
-}
-
-.user-access-denied-icon {
-    fill: var(--sys-red);
-    width: 1.5rem;
-}
-
 /* offline card styles */
-.card-one.card-disabled,
-.card-two.card-disabled,
-.card-three.card-disabled {
+.project-grid-card.card-disabled {
     border: 0.0625rem dashed var(--sys-red);
     cursor: not-allowed;
     /* turn off the raise transition */
@@ -172,14 +122,12 @@
     font-size: 1.75rem;
     color: var(--sys-red);
     z-index: 10;
-
 }
 
 .card-error-state-details {
     font-size: 1rem;
     color: var(--text-main);
     z-index: 10;
-
 }
 
 /* Project-card IMG Overlay */
@@ -190,49 +138,13 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.641), rgba(0, 0, 0, 0.734));
 }
 
-
 @media (min-width: 50rem) {
-
-    /* card Section */
     .card-container {
-        /* grid position from main-container */
-        grid-column: 1 / 13;
-        /* this is '9 / 14' bcuz i added an extra 0.5fr row above for the .title */
-        grid-row: 9 / 14;
-
-        /* card-sub-grid */
-        grid-template-rows: repeat(12, 1fr);
-        gap: 0.5rem 1rem;
-        min-height: 10rem;
-    }
-
-    .card-one,
-    .card-two,
-    .card-three {
-        min-height: 5rem;
-        border: 0.0625rem solid #00000022;
-    }
-
-    .card-img {
-        position: relative;
-    }
-
-    .card-header {
-        font-size: 1.5rem;
-    }
-
-    .card-one {
-        grid-column: 1 / 5;
-        grid-row: 2 / 13;
-    }
-
-    .card-two {
-        grid-column: 5 / 9;
-        grid-row: 2 / 13;
-    }
-
-    .card-three {
-        grid-column: 9 / 13;
-        grid-row: 2 / 13;
+        /* grid position from main-container: reclaims the space the
+           full-width Hero banner used to occupy, now that Hero only
+           renders inside the popup */
+        grid-column: 1 / 9;
+        grid-row: 2 / 14;
+        align-content: start;
     }
 }
