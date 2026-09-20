@@ -1,0 +1,6 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+# SPA fallback: serve index.html for any request that isn't a real file,
+# so React Router can handle client-side routes (e.g. /about).
+RewriteRule ^ index.html [QSA,L]

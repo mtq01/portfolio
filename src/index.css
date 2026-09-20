@@ -25,9 +25,7 @@ body,
 
 body {
   /* max screen width */
-  max-width: 105rem;
-  /* centers dashboard on XL screens */
-  margin: 0 auto;
+  max-width: 120rem;
 }
 
 
@@ -87,7 +85,7 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 /* Grouping content

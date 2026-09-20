@@ -1,17 +1,59 @@
-# React + Vite
+# EMBURR — Mike's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal developer portfolio built with React and Vite, styled as a
+faux system dashboard: a live-updating activity log, a simulated
+online/offline system status, and a Guest/Admin role toggle that
+gates deeper project write-ups behind a "log in" affordance.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home / About pages** — project tiles and "strengths" tiles that
+  drive a shared Hero + card layout via React Router.
+- **Guest / Admin roles** — switch roles from the nav to reveal
+  admin-only technical breakdowns on project cards.
+- **Light / Dark theme** toggle.
+- **Simulated activity log** — a live `aria-live` log panel that
+  narrates page navigation, role/theme changes, and periodic
+  simulated system events.
+- **Project detail popups** — accessible modal dialogs
+  (`role="dialog"`, focus-visible close button, closes on Escape or
+  outside click) with GitHub/live-site links per project.
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/) + [React Router 7](https://reactrouter.com/)
+- [Vite 7](https://vitejs.dev/)
+- Plain CSS (no framework), organized per-component
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# portfolio
+```bash
+npm install
+npm run dev
+```
+
+Other scripts:
+
+```bash
+npm run build    # production build -> emburr/ (see vite.config.js)
+npm run lint      # eslint
+npm run preview   # preview a production build locally
+```
+
+## Project structure
+
+```
+src/
+  components/   # one folder per component (JSX + its own CSS)
+  data/         # site-data.js: all project/about content
+  globals/      # shared constants (app title, etc.)
+  constants.js  # roles, log types, simulated log message pools
+public/         # favicons, manifest, .htaccess
+```
+
+## Notes
+
+- The production build output directory is `emburr/`, configured in
+  `vite.config.js` — not the Vite default `dist/`.
+- See [`DECISIONS.md`](./DECISIONS.md) for a running log of notable
+  changes and the reasoning behind them.
